@@ -25,9 +25,16 @@
       <div class="control-group">
         <label for="unit">Unit</label>
         <select id="unit" name="unit">
-          <option value="paragraphs" selected>Paragraphs</option>
-          <option value="sentences">Sentences</option>
-          <option value="words">Words</option>
+          <optgroup label="Lorem Ipsum">
+            <option value="paragraphs" selected>Paragraphs</option>
+            <option value="sentences">Sentences</option>
+            <option value="words">Words</option>
+          </optgroup>
+          <optgroup label="Random Data">
+            <option value="emails">Email Addresses</option>
+            <option value="urls">URLs</option>
+            <option value="domains">Domain Names</option>
+          </optgroup>
         </select>
       </div>
 
@@ -58,6 +65,8 @@
       <button type="button" class="preset-btn" data-preset="3-para">3 Paragraphs</button>
       <button type="button" class="preset-btn" data-preset="5-para">5 Paragraphs</button>
       <button type="button" class="preset-btn" data-preset="10-para">10 Paragraphs</button>
+      <button type="button" class="preset-btn" data-preset="10-emails">10 Emails</button>
+      <button type="button" class="preset-btn" data-preset="5-urls">5 URLs</button>
     </div>
 
     <button type="submit" class="button button-primary generate-button">

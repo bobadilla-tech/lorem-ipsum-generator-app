@@ -6,15 +6,22 @@ import AdContainer from '../components/layout/AdContainer.astro';
 ---
 
 <BaseLayout
-  title="Lorem Ipsum Generator - Free Placeholder Text Generator"
-  description="Generate Lorem Ipsum placeholder text for your designs. Fast, modern, and completely free. Perfect for designers, developers, and content creators."
-  keywords={['lorem ipsum generator', 'placeholder text', 'dummy text generator', 'lorem ipsum', 'text generator', 'design placeholder']}
+  title="Lorem Ipsum Generator - Free Placeholder Text, Email, URL & Domain Generator"
+  description="Generate Lorem Ipsum text, random email addresses, URLs, and domain names instantly. Fast, modern, and completely free. Perfect for designers, developers, and testing."
+  keywords={['lorem ipsum generator', 'placeholder text', 'dummy text generator', 'email generator', 'random email generator', 'url generator', 'domain name generator', 'fake email', 'test data generator', 'lorem ipsum']}
 >
   <div class="container">
     <!-- Hero Section with Generator -->
     <section class="hero-section">
       <GeneratorControls />
       <OutputDisplay />
+
+      <!-- Feature Highlight -->
+      <div class="feature-highlight">
+        <p class="highlight-text">
+          <strong>NEW:</strong> Now generate random emails, URLs, and domain names for testing!
+        </p>
+      </div>
     </section>
 
     <!-- Ad Slot 1: Leaderboard -->
@@ -101,6 +108,64 @@ import AdContainer from '../components/layout/AdContainer.astro';
       </div>
     </section>
 
+    <!-- Test Data Generation Section -->
+    <section class="test-data-section">
+      <div class="test-data-container glass-card">
+        <h2 class="section-title text-center">Perfect for Testing & Development</h2>
+        <p class="section-intro">
+          Beyond Lorem Ipsum text, generate realistic test data for your applications:
+        </p>
+
+        <div class="test-data-grid">
+          <div class="test-data-card">
+            <div class="test-icon">📧</div>
+            <h3>Email Addresses</h3>
+            <p>Generate fake email addresses for testing user registration, forms, and email validation.</p>
+            <div class="example-box">
+              <code>lorem.ipsum@gmail.com<br/>dolor.sit@example.com</code>
+            </div>
+            <ul class="use-cases">
+              <li>Testing form validation</li>
+              <li>Populating databases</li>
+              <li>User interface mockups</li>
+            </ul>
+          </div>
+
+          <div class="test-data-card">
+            <div class="test-icon">🌐</div>
+            <h3>URLs</h3>
+            <p>Create realistic URLs with domains and paths for testing links and navigation.</p>
+            <div class="example-box">
+              <code>https://loremipsum.com/blog<br/>https://dolorsit.dev/products</code>
+            </div>
+            <ul class="use-cases">
+              <li>Testing link components</li>
+              <li>Navigation prototypes</li>
+              <li>SEO tool testing</li>
+            </ul>
+          </div>
+
+          <div class="test-data-card">
+            <div class="test-icon">🔗</div>
+            <h3>Domain Names</h3>
+            <p>Generate random domain names with various TLDs for testing and prototyping.</p>
+            <div class="example-box">
+              <code>loremipsum.io<br/>consectetur.tech</code>
+            </div>
+            <ul class="use-cases">
+              <li>DNS tool testing</li>
+              <li>Domain search features</li>
+              <li>Hosting prototypes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <p><strong>Try it now:</strong> Select "Email Addresses", "URLs", or "Domain Names" from the Unit dropdown above!</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Ad Slot 3: In-Content Rectangle -->
     <AdContainer
       adSlot="1122334455"
@@ -110,12 +175,30 @@ import AdContainer from '../components/layout/AdContainer.astro';
 
     <!-- Features Section -->
     <section class="features-section">
-      <h2 class="section-title text-center">Why Use Our Lorem Ipsum Generator?</h2>
+      <h2 class="section-title text-center">Why Use Our Generator?</h2>
       <div class="features-grid">
         <div class="feature-card glass-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Lightning Fast</h3>
-          <p>Generate Lorem Ipsum text instantly with our optimized algorithm. No loading, no delays.</p>
+          <div class="feature-icon">📝</div>
+          <h3>Lorem Ipsum Text</h3>
+          <p>Generate classic placeholder text by paragraphs, sentences, or words. Perfect for mockups.</p>
+        </div>
+
+        <div class="feature-card glass-card highlight-card">
+          <div class="feature-icon">📧</div>
+          <h3>Random Emails</h3>
+          <p>Generate fake email addresses for testing forms, databases, and user interfaces.</p>
+        </div>
+
+        <div class="feature-card glass-card highlight-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Random URLs</h3>
+          <p>Create realistic-looking URLs with domains and paths for testing link features.</p>
+        </div>
+
+        <div class="feature-card glass-card highlight-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Domain Names</h3>
+          <p>Generate random domain names with various TLDs for prototyping and testing.</p>
         </div>
 
         <div class="feature-card glass-card">
@@ -125,15 +208,21 @@ import AdContainer from '../components/layout/AdContainer.astro';
         </div>
 
         <div class="feature-card glass-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Generate content instantly with our optimized algorithm. No loading, no delays.</p>
+        </div>
+
+        <div class="feature-card glass-card">
           <div class="feature-icon">📱</div>
           <h3>Mobile Friendly</h3>
-          <p>Works perfectly on all devices. Generate placeholder text anywhere, anytime.</p>
+          <p>Works perfectly on all devices. Generate placeholder data anywhere, anytime.</p>
         </div>
 
         <div class="feature-card glass-card">
           <div class="feature-icon">🔒</div>
           <h3>100% Free</h3>
-          <p>No sign-up, no limits, no hidden fees. Generate as much Lorem Ipsum as you need.</p>
+          <p>No sign-up, no limits, no hidden fees. Generate as much as you need.</p>
         </div>
 
         <div class="feature-card glass-card">
@@ -248,6 +337,55 @@ import AdContainer from '../components/layout/AdContainer.astro';
 <style>
   .hero-section {
     padding: 2rem 0;
+  }
+
+  .feature-highlight {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .highlight-text {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    font-size: 1.125rem;
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+
+  .highlight-text strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  @keyframes pulse-border {
+    0%, 100% {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    50% {
+      border-color: #8b5cf6;
+      box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+    }
+  }
+
+  .highlight-card {
+    border: 2px solid var(--accent);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  }
+
+  .highlight-card .feature-icon {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   .content-section {
@@ -568,6 +706,108 @@ import AdContainer from '../components/layout/AdContainer.astro';
     height: 20px;
   }
 
+  /* Test Data Section */
+  .test-data-section {
+    margin: 4rem 0;
+  }
+
+  .test-data-container {
+    padding: 3rem 2rem;
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.125rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--text-secondary);
+  }
+
+  .test-data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .test-data-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .test-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .test-data-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .test-data-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .example-box {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-mono);
+  }
+
+  .example-box code {
+    color: var(--accent);
+    font-size: 0.875rem;
+    line-height: 1.8;
+  }
+
+  .use-cases {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .use-cases li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .use-cases li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box p {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  .cta-box strong {
+    color: var(--accent);
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .content-grid {
@@ -577,6 +817,10 @@ import AdContainer from '../components/layout/AdContainer.astro';
     .sidebar-ad {
       position: static;
       margin-top: 2rem;
+    }
+
+    .test-data-grid {
+      grid-template-columns: 1fr;
     }
   }
 

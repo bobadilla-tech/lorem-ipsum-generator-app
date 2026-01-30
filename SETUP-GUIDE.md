@@ -44,6 +44,7 @@ Your Lorem Ipsum generator is now live and running! Here's what's complete:
 ### View Your Site
 
 Your dev server is already running! Open your browser to:
+
 ```
 http://localhost:4321
 ```
@@ -73,6 +74,7 @@ http://localhost:4321
 ### 1. Update Your Domain
 
 Edit `astro.config.mjs`:
+
 ```javascript
 site: 'https://your-actual-domain.com',  // Change this!
 ```
@@ -80,11 +82,13 @@ site: 'https://your-actual-domain.com',  // Change this!
 ### 2. Add Your Google AdSense Account
 
 Edit `src/components/layout/AdContainer.astro`:
+
 ```typescript
-const adClient = 'ca-pub-XXXXXXXXXXXXXXXXX';  // Your Publisher ID
+const adClient = "ca-pub-XXXXXXXXXXXXXXXXX"; // Your Publisher ID
 ```
 
 Then update ad slot IDs in `src/pages/index.astro`:
+
 ```astro
 <AdContainer adSlot="YOUR_ACTUAL_AD_SLOT_ID" />
 ```
@@ -92,6 +96,7 @@ Then update ad slot IDs in `src/pages/index.astro`:
 ### 3. Create ads.txt File
 
 Create `public/ads.txt`:
+
 ```
 google.com, pub-XXXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
 ```
@@ -145,99 +150,3 @@ pnpm preview
 # Open Chrome DevTools > Lighthouse
 # Run audit (should score 95+)
 ```
-
-## 🚢 Deployment
-
-### Option 1: Cloudflare Pages (Recommended)
-
-1. Push code to GitHub
-2. Go to pages.cloudflare.com
-3. Connect repository
-4. Build settings:
-   - Command: `pnpm build`
-   - Output: `dist`
-5. Deploy!
-
-### Option 2: Netlify
-
-1. Push to GitHub
-2. Go to netlify.com
-3. New site from Git
-4. Build command: `pnpm build`
-5. Publish directory: `dist`
-
-### Option 3: Vercel
-
-1. Push to GitHub
-2. Import project to vercel.com
-3. Auto-detects Astro settings
-4. Deploy!
-
-## 📊 Expected Results
-
-### Performance (After Deployment)
-- Lighthouse Score: 95-100
-- First Contentful Paint: < 1s
-- Time to Interactive: < 2s
-- Mobile-friendly: Yes
-
-### SEO (Within 3 Months)
-- Google indexing: 1-2 weeks
-- Ranking for "lorem ipsum generator": 3-6 months
-- Backlinks: 10-50
-- Organic traffic: 1,000-5,000/month
-
-### Revenue (Conservative)
-- Month 1: $0-50 (need traffic first)
-- Month 3: $100-200
-- Month 6: $400-600
-- Month 12: $1,000-2,000
-
-## 🐛 Common Issues
-
-### Port Already in Use
-```bash
-lsof -ti:4321 | xargs kill -9
-pnpm dev
-```
-
-### TypeScript Errors
-```bash
-pnpm astro check
-```
-
-### Build Fails
-```bash
-rm -rf node_modules pnpm-lock.yaml dist
-pnpm install
-pnpm build
-```
-
-## 📞 Need Help?
-
-- Check README.md for detailed documentation
-- Review plan file: `~/.claude/plans/resilient-zooming-locket.md`
-- Test site at: http://localhost:4321
-
-## ✅ Launch Checklist
-
-Before going live:
-
-- [ ] Update domain in `astro.config.mjs`
-- [ ] Add Google AdSense account
-- [ ] Update all ad slot IDs
-- [ ] Create `ads.txt` file
-- [ ] Test generator on mobile
-- [ ] Test dark mode toggle
-- [ ] Test copy to clipboard
-- [ ] Run Lighthouse audit (target: 95+)
-- [ ] Check all links work
-- [ ] Submit sitemap to Search Console
-- [ ] Set up Google Analytics (optional)
-- [ ] Deploy to production
-- [ ] Share on social media
-- [ ] Submit to Product Hunt (optional)
-
----
-
-**Your site is ready to launch! Just add your AdSense account and deploy.** 🚀

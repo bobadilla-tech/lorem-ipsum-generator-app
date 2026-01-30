@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://your-domain.com', // Update with your actual domain
+  site: 'https://lorem-ipsum.bobadilla.tech',
   output: 'static',
   build: {
     inlineStylesheets: 'auto',
@@ -11,7 +11,7 @@ export default defineConfig({
   vite: {
     build: {
       cssMinify: true,
-      minify: 'terser',
+      minify: 'esbuild',
     },
   },
 });

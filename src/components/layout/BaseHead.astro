@@ -51,7 +51,7 @@ const socialImage = image ? new URL(image, Astro.site) : new URL('/images/og-ima
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Lorem Ipsum Generator",
+  "name": "Lorem Ipsum Generator - Text, Email, URL & Domain Generator",
   "url": canonicalURL.toString(),
   "description": description,
   "applicationCategory": "DeveloperApplication",
@@ -63,10 +63,22 @@ const socialImage = image ? new URL(image, Astro.site) : new URL('/images/og-ima
   },
   "author": {
     "@type": "Organization",
-    "name": "Lorem Ipsum"
+    "name": "Bobadilla Tech",
+    "url": "https://bobadilla.tech"
   },
   "image": socialImage.toString(),
-  "screenshot": socialImage.toString()
+  "screenshot": socialImage.toString(),
+  "featureList": [
+    "Lorem Ipsum text generation (paragraphs, sentences, words)",
+    "Random email address generator",
+    "Random URL generator with paths",
+    "Random domain name generator",
+    "Multiple output formats (Plain Text, HTML, Markdown)",
+    "Dark mode support",
+    "Keyboard shortcuts (Ctrl+G, Ctrl+K)",
+    "Copy to clipboard functionality",
+    "100% free, no sign-up required"
+  ]
 })} />
 
 <!-- Performance -->

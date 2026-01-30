@@ -167,10 +167,40 @@ function initializeGenerator() {
         countInput.value = '10';
         unitSelect.value = 'paragraphs';
         break;
+      case '10-emails':
+        countInput.value = '10';
+        unitSelect.value = 'emails';
+        break;
+      case '5-urls':
+        countInput.value = '5';
+        unitSelect.value = 'urls';
+        break;
     }
+
+    // Update UI based on selection
+    updateUIForUnit();
 
     // Auto-generate after preset selection
     generateText();
+  }
+
+  /**
+   * Update UI elements based on selected unit
+   */
+  function updateUIForUnit() {
+    const unit = unitSelect.value;
+    const checkboxGroup = document.querySelector('.checkbox-group') as HTMLElement;
+
+    // Hide "Start with Lorem Ipsum" for non-text generators
+    if (unit === 'emails' || unit === 'urls' || unit === 'domains') {
+      if (checkboxGroup) {
+        checkboxGroup.style.display = 'none';
+      }
+    } else {
+      if (checkboxGroup) {
+        checkboxGroup.style.display = 'flex';
+      }
+    }
   }
 
   // Event Listeners
@@ -195,6 +225,11 @@ function initializeGenerator() {
         handlePresetClick(preset);
       }
     });
+  });
+
+  // Update UI when unit changes
+  unitSelect?.addEventListener('change', () => {
+    updateUIForUnit();
   });
 
   // Keyboard Shortcuts

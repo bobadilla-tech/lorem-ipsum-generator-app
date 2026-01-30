@@ -1,6 +1,6 @@
 import { LOREM_WORDS, CLASSIC_OPENING } from './word-bank';
 
-export type GeneratorUnit = 'words' | 'sentences' | 'paragraphs';
+export type GeneratorUnit = 'words' | 'sentences' | 'paragraphs' | 'emails' | 'urls' | 'domains';
 export type OutputFormat = 'plain' | 'html' | 'markdown';
 
 export interface GeneratorOptions {
@@ -9,6 +9,9 @@ export interface GeneratorOptions {
   startWithLorem: boolean;
   format: OutputFormat;
 }
+
+// TLDs for domain generation
+const TLDS = ['com', 'net', 'org', 'io', 'dev', 'app', 'co', 'tech', 'info', 'biz'];
 
 export class LoremGenerator {
   private words: string[];
@@ -34,6 +37,18 @@ export class LoremGenerator {
 
       case 'paragraphs':
         content = this.generateParagraphs(options.count, options.startWithLorem);
+        break;
+
+      case 'emails':
+        content = this.generateEmails(options.count);
+        break;
+
+      case 'urls':
+        content = this.generateUrls(options.count);
+        break;
+
+      case 'domains':
+        content = this.generateDomains(options.count);
         break;
 
       default:
@@ -124,6 +139,62 @@ export class LoremGenerator {
     const u2 = Math.random();
     const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
     return z0 * stdev + mean;
+  }
+
+  /**
+   * Generates random email addresses
+   */
+  private generateEmails(count: number): string[] {
+    const emails: string[] = [];
+    const providers = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'example.com'];
+
+    for (let i = 0; i < count; i++) {
+      const username = this.generateWords(2, false).join('.');
+      const provider = providers[Math.floor(Math.random() * providers.length)];
+      emails.push(`${username}@${provider}`);
+    }
+
+    return emails;
+  }
+
+  /**
+   * Generates random URLs
+   */
+  private generateUrls(count: number): string[] {
+    const urls: string[] = [];
+    const protocols = ['https://'];
+    const paths = ['blog', 'about', 'products', 'services', 'contact', 'news', 'resources'];
+
+    for (let i = 0; i < count; i++) {
+      const protocol = protocols[Math.floor(Math.random() * protocols.length)];
+      const domain = this.generateDomains(1)[0];
+      const hasPath = Math.random() > 0.3; // 70% chance of having a path
+
+      if (hasPath) {
+        const path = paths[Math.floor(Math.random() * paths.length)];
+        urls.push(`${protocol}${domain}/${path}`);
+      } else {
+        urls.push(`${protocol}${domain}`);
+      }
+    }
+
+    return urls;
+  }
+
+  /**
+   * Generates random domain names
+   */
+  private generateDomains(count: number): string[] {
+    const domains: string[] = [];
+
+    for (let i = 0; i < count; i++) {
+      const nameLength = Math.floor(Math.random() * 2) + 1; // 1-2 words
+      const name = this.generateWords(nameLength, false).join('');
+      const tld = TLDS[Math.floor(Math.random() * TLDS.length)];
+      domains.push(`${name}.${tld}`);
+    }
+
+    return domains;
   }
 
   /**

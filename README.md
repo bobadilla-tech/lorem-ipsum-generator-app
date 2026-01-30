@@ -88,9 +88,9 @@ The Lorem Ipsum generator uses a Gaussian distribution to create natural-looking
 // Generate 5 paragraphs with Lorem Ipsum opening
 const text = loremGenerator.generate({
   count: 5,
-  unit: 'paragraphs',
+  unit: "paragraphs",
   startWithLorem: true,
-  format: 'plain'
+  format: "plain",
 });
 ```
 
@@ -101,7 +101,7 @@ const text = loremGenerator.generate({
 Edit `src/components/layout/AdContainer.astro`:
 
 ```typescript
-const adClient = 'ca-pub-XXXXXXXXXXXXXXXXX'; // Replace with your Publisher ID
+const adClient = "ca-pub-XXXXXXXXXXXXXXXXX"; // Replace with your Publisher ID
 ```
 
 ### 2. Update Ad Slot IDs
@@ -119,19 +119,6 @@ Create `public/ads.txt` with your AdSense verification:
 ```
 google.com, pub-XXXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
 ```
-
-### 4. Ad Placements
-
-The site uses 4 strategic ad placements:
-
-1. **Leaderboard (728x90)** - Between generator and content
-2. **Sticky Sidebar (300x250)** - Next to content (desktop)
-3. **In-Content Rectangle (300x250)** - Between content sections
-4. **Mobile Anchor** - Bottom banner (mobile only)
-
-**Expected Revenue** (conservative):
-- 10K visitors/month: $437/month
-- 50K visitors/month: $2,187/month
 
 ## 🔍 SEO Optimization
 
@@ -151,7 +138,7 @@ Edit `astro.config.mjs`:
 
 ```javascript
 export default defineConfig({
-  site: 'https://your-actual-domain.com',
+  site: "https://your-actual-domain.com",
   // ...
 });
 ```
@@ -171,8 +158,8 @@ Edit CSS variables in `src/styles/global.css`:
 
 ```css
 :root {
-  --accent: #3b82f6;         /* Primary accent color */
-  --accent-hover: #2563eb;   /* Hover state */
+  --accent: #3b82f6; /* Primary accent color */
+  --accent-hover: #2563eb; /* Hover state */
   /* ... */
 }
 ```
@@ -189,7 +176,9 @@ Extend the word bank in `src/lib/word-bank.ts`:
 
 ```typescript
 export const LOREM_WORDS: string[] = [
-  'lorem', 'ipsum', 'dolor', // ... add more Latin words
+  "lorem",
+  "ipsum",
+  "dolor", // ... add more Latin words
 ];
 ```
 
@@ -240,7 +229,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
       - run: pnpm install
       - run: pnpm build
       - uses: peaceiris/actions-gh-pages@v3
@@ -274,31 +263,6 @@ pnpm preview
 - **Ctrl+K** (or Cmd+K): Copy to clipboard
 - Theme toggle persists to localStorage
 
-## 🎯 Roadmap
-
-### Phase 1 (Current - MVP)
-- ✅ Core generator with Gaussian distribution
-- ✅ Modern glassmorphism UI
-- ✅ Dark mode support
-- ✅ Google AdSense integration
-- ✅ SEO optimization
-- ✅ Homepage with educational content
-
-### Phase 2 (Next 1-2 months)
-- [ ] Additional content pages (history, usage, alternatives)
-- [ ] Privacy policy & terms pages
-- [ ] Google Analytics 4 integration
-- [ ] Performance optimization
-- [ ] Cross-browser testing
-- [ ] Production deployment
-
-### Phase 3 (3-6 months)
-- [ ] API endpoint (JSON)
-- [ ] More generator options (email, URL, domain)
-- [ ] Custom word lists
-- [ ] Chrome extension
-- [ ] Premium features (ad-free option)
-
 ## 🐛 Troubleshooting
 
 ### Build Errors
@@ -327,25 +291,8 @@ lsof -ti:4321 | xargs kill -9
 pnpm dev
 ```
 
-## 📝 License
-
-MIT License - Feel free to use this project for commercial purposes!
-
 ## 🙏 Acknowledgments
 
 - **Cicero** - For "De finibus bonorum et malorum" (45 BC)
 - **Astro Team** - For the amazing static site generator
 - **Lorelai** - For inspiration (though we built from scratch)
-
-## 📧 Support
-
-- **Issues**: https://github.com/yourusername/lorem-ipsum/issues
-- **Discussions**: https://github.com/yourusername/lorem-ipsum/discussions
-
-## 🌟 Star This Project
-
-If you find this useful, please consider starring the repository!
-
----
-
-**Built with ❤️ using Astro 5**

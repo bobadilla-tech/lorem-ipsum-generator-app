@@ -16,7 +16,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
-const socialImage = image ? new URL(image, Astro.site) : new URL('/images/og-image.png', Astro.site);
+const socialImage = image ? new URL(image, Astro.site) : new URL('/images/og-image.svg', Astro.site);
 ---
 
 <!-- Primary Meta Tags -->

@@ -1,0 +1,207 @@
+---
+---
+
+<div class="generator-controls glass-card">
+  <h1 class="generator-title">
+    <span class="text-gradient">Lorem Ipsum</span> Generator
+  </h1>
+  <p class="generator-subtitle">Generate professional placeholder text for your designs</p>
+
+  <form id="generator-form" class="control-form">
+    <div class="control-row">
+      <div class="control-group">
+        <label for="count">Count</label>
+        <input
+          type="number"
+          id="count"
+          name="count"
+          value="5"
+          min="1"
+          max="100"
+          required
+        />
+      </div>
+
+      <div class="control-group">
+        <label for="unit">Unit</label>
+        <select id="unit" name="unit">
+          <option value="paragraphs" selected>Paragraphs</option>
+          <option value="sentences">Sentences</option>
+          <option value="words">Words</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="format">Format</label>
+        <select id="format" name="format">
+          <option value="plain" selected>Plain Text</option>
+          <option value="html">HTML</option>
+          <option value="markdown">Markdown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-label">
+        <input
+          type="checkbox"
+          id="start-lorem"
+          name="startWithLorem"
+          checked
+        />
+        <span>Start with "Lorem ipsum dolor sit amet..."</span>
+      </label>
+    </div>
+
+    <div class="preset-buttons">
+      <button type="button" class="preset-btn" data-preset="1-para">1 Paragraph</button>
+      <button type="button" class="preset-btn" data-preset="3-para">3 Paragraphs</button>
+      <button type="button" class="preset-btn" data-preset="5-para">5 Paragraphs</button>
+      <button type="button" class="preset-btn" data-preset="10-para">10 Paragraphs</button>
+    </div>
+
+    <button type="submit" class="button button-primary generate-button">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Generate Lorem Ipsum
+      <span class="keyboard-hint">Ctrl+G</span>
+    </button>
+  </form>
+</div>
+
+<style>
+  .generator-controls {
+    margin-bottom: 2rem;
+  }
+
+  .generator-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .generator-subtitle {
+    text-align: center;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+
+  .control-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .control-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .control-group label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    accent-color: var(--accent);
+  }
+
+  .checkbox-label span {
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .preset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .preset-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.625rem 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .preset-btn:hover {
+    background: var(--bg-glass);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .generate-button {
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    position: relative;
+  }
+
+  .keyboard-hint {
+    position: absolute;
+    right: 1rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 768px) {
+    .generator-title {
+      font-size: 2rem;
+    }
+
+    .control-row {
+      grid-template-columns: 1fr;
+    }
+
+    .preset-buttons {
+      flex-direction: column;
+    }
+
+    .preset-btn {
+      min-width: 100%;
+    }
+
+    .keyboard-hint {
+      display: none;
+    }
+  }
+</style>

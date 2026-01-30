@@ -50,10 +50,15 @@ function initializeGenerator() {
       try {
         const generatedText = loremGenerator.generate(options);
 
-        // Update output
+        // Update output based on format
         if (options.format === 'html') {
+          // Show HTML as rendered content
           outputEl.innerHTML = generatedText;
+        } else if (options.format === 'markdown') {
+          // Show markdown as plain text (formatted)
+          outputEl.textContent = generatedText;
         } else {
+          // Plain text
           outputEl.textContent = generatedText;
         }
 

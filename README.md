@@ -2,7 +2,7 @@
 
 A modern, blazing-fast Lorem Ipsum generator with email, URL, and domain generation capabilities. Built with Astro 5, featuring glassmorphism design, dark mode, and exceptional SEO. Optimized for Google Ads revenue.
 
-![Lorem Ipsum Generator](https://lorem-ipsum.bobadilla.tech/images/og-image.svg)
+![Lorem Ipsum Generator](https://lorem-ipsum.bobadilla.tech/images/og-image.png)
 
 🔗 **Live Demo**: [lorem-ipsum.bobadilla.tech](https://lorem-ipsum.bobadilla.tech)
 

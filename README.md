@@ -1,8 +1,10 @@
 # Lorem Ipsum Generator 🎨
 
-A modern, blazing-fast Lorem Ipsum generator optimized for Google Ads revenue. Built with Astro 5, featuring glassmorphism design, dark mode, and exceptional SEO.
+A modern, blazing-fast Lorem Ipsum generator with email, URL, and domain generation capabilities. Built with Astro 5, featuring glassmorphism design, dark mode, and exceptional SEO. Optimized for Google Ads revenue.
 
-![Lorem Ipsum Generator](https://your-domain.com/og-image.png)
+![Lorem Ipsum Generator](https://lorem-ipsum.bobadilla.tech/images/og-image.svg)
+
+🔗 **Live Demo**: [lorem-ipsum.bobadilla.tech](https://lorem-ipsum.bobadilla.tech)
 
 ## ✨ Features
 
@@ -14,6 +16,7 @@ A modern, blazing-fast Lorem Ipsum generator optimized for Google Ads revenue. B
 - **🔍 SEO-Friendly** - Comprehensive meta tags, structured data, and sitemap
 - **⌨️ Keyboard Shortcuts** - Ctrl+G to generate, Ctrl+K to copy
 - **📝 Multiple Formats** - Export as plain text, HTML, or Markdown
+- **📧 Multiple Generators** - Lorem Ipsum text, email addresses, URLs, and domain names
 - **🚀 Zero JS by default** - Astro Islands architecture for optimal performance
 
 ## 🚀 Quick Start
@@ -27,8 +30,8 @@ A modern, blazing-fast Lorem Ipsum generator optimized for Google Ads revenue. B
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/lorem-ipsum.git
-cd lorem-ipsum
+git clone https://github.com/bobadilla-tech/lorem-ipsum-generator-app.git
+cd lorem-ipsum-generator-app
 
 # Install dependencies
 pnpm install
@@ -78,11 +81,18 @@ lorem-ipsum/
 
 ## 🎯 Core Algorithm
 
-The Lorem Ipsum generator uses a Gaussian distribution to create natural-looking text:
+The generator supports multiple types of placeholder content:
 
+### Lorem Ipsum Text
+Uses Gaussian distribution to create natural-looking text:
 - **Sentences**: Average 15 words (±5 words standard deviation)
 - **Paragraphs**: Average 5 sentences (±2 sentences standard deviation)
 - **Word Bank**: 180+ classical Latin words from Cicero's "De finibus bonorum et malorum" (45 BC)
+
+### Random Data Generation
+- **Email Addresses**: Generates realistic fake email addresses with common providers
+- **URLs**: Creates random URLs with realistic paths and TLDs
+- **Domain Names**: Generates random domain names with various TLDs (.com, .net, .org, .io, etc.)
 
 ```typescript
 // Generate 5 paragraphs with Lorem Ipsum opening
@@ -90,6 +100,14 @@ const text = loremGenerator.generate({
   count: 5,
   unit: "paragraphs",
   startWithLorem: true,
+  format: "plain",
+});
+
+// Generate 10 random email addresses
+const emails = loremGenerator.generate({
+  count: 10,
+  unit: "emails",
+  startWithLorem: false,
   format: "plain",
 });
 ```
@@ -132,13 +150,14 @@ The site includes comprehensive SEO optimization:
 - Canonical URLs
 - XML sitemap (auto-generated)
 
-### Update Domain
+### Domain Configuration
 
-Edit `astro.config.mjs`:
+The site is configured for `https://lorem-ipsum.bobadilla.tech` in `astro.config.mjs`:
 
 ```javascript
 export default defineConfig({
-  site: "https://your-actual-domain.com",
+  site: "https://lorem-ipsum.bobadilla.tech",
+  integrations: [sitemap()],
   // ...
 });
 ```
@@ -295,4 +314,13 @@ pnpm dev
 
 - **Cicero** - For "De finibus bonorum et malorum" (45 BC)
 - **Astro Team** - For the amazing static site generator
-- **Lorelai** - For inspiration (though we built from scratch)
+- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Bobadilla Tech's Go library for Lorem Ipsum generation (inspiration for this project)
+
+## 🔗 Related Projects
+
+- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Lorem Ipsum generator library for Go
+- **[Requiems API](https://requiems-api.xyz)** - Enterprise API solutions by Bobadilla Tech
+
+---
+
+Built with ❤️ by [Bobadilla Tech](https://bobadilla.tech) | [GitHub](https://github.com/bobadilla-tech) | [Website](https://bobadilla.tech)

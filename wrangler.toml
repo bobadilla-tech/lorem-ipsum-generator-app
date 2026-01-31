@@ -16,6 +16,3 @@ enabled = false
 [build]
 command = "pnpm build"
 cwd = ""
-
-[build.upload]
-format = "service-worker"

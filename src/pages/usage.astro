@@ -244,7 +244,8 @@ const faqSchema = {
             </div>
 
             <div class="dev-tool-card">
-              <h4>🚀 Requiems API</h4>
+              <img src="/images/requiems-api-logo.png" alt="Requiems API" class="dev-tool-logo" width="40" height="40" />
+              <h4>Requiems API</h4>
               <p>Lorem Ipsum generation as one endpoint in an all-in-one SaaS backend</p>
               <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="link-button">
                 View API Docs →
@@ -457,6 +458,12 @@ const faqSchema = {
     padding: 2rem;
     border-radius: var(--radius-lg);
     border: 1px solid var(--border);
+  }
+
+  .dev-tool-logo {
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    margin-bottom: 0.75rem;
   }
 
   .dev-tool-card h4 {

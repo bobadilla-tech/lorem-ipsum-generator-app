@@ -1,24 +1,12 @@
-# Claude Development Guide - Lorem Ipsum Generator
+# Lorem Ipsum Generator
 
-This document provides context for future Claude sessions working on this
-project.
-
-## Project Overview
-
-**Lorem Ipsum Generator** - A modern, ad-optimized web application for
+A modern, ad-optimized web application for
 generating Lorem Ipsum text, random emails, URLs, and domain names. Built with
 Astro 5, designed for passive income through Google AdSense.
 
-- **Live Site**: https://lorem-ipsum.bobadilla.tech
-- **GitHub**: https://github.com/bobadilla-tech/lorem-ipsum-generator-app
-- **Inspiration**: [Lorelai](https://github.com/bobadilla-tech/lorelai) (Go
-  library)
-
 ## Tech Stack & Architecture
 
-### Core Technologies
-
-- **Astro 5.x** - Static site generator (chosen for SEO and performance)
+- **Astro** - Static site generator (chosen for SEO and performance)
 - **TypeScript** - Strict mode enabled
 - **pnpm** - Package manager (NOT npm or yarn)
 - **Cloudflare Pages** - Deployment platform
@@ -215,9 +203,9 @@ pnpm build
 ```css
 /* Light Mode */
 --accent: #3b82f6 (blue) --bg-primary: #ffffff --bg-secondary: #f1f5f9
-  --text-primary: #0f172a --text-secondary: #475569 /* Dark Mode */ --accent:
-  #60a5fa --bg-primary: #0f172a --bg-secondary: #1e293b --text-primary: #f8fafc
-  --text-secondary: #cbd5e1;
+  --text-primary: #0f172a --text-secondary: #475569 /* Dark Mode */
+  --accent: #60a5fa --bg-primary: #0f172a --bg-secondary: #1e293b
+  --text-primary: #f8fafc --text-secondary: #cbd5e1;
 ```
 
 ## Known Issues & Gotchas
@@ -335,18 +323,3 @@ git push                # Push to GitHub (triggers Cloudflare deploy)
 
 - **Domain**: lorem-ipsum.bobadilla.tech
 - **Hosting**: Cloudflare Pages
-- **SSL**: Automatic (Cloudflare)
-- **CDN**: Global (Cloudflare)
-- **Cost**: $0 (free tier)
-
-## Related Projects
-
-- **Lorelai**: https://github.com/bobadilla-tech/lorelai (Go library
-  inspiration)
-- **Requiems API**: https://requiems.xyz (Enterprise API by Bobadilla Tech)
-- **Bobadilla Tech**: https://bobadilla.tech (Company website)
-
----
-
-**Last Updated**: 2026-01-30 **Current Version**: 1.0.0 **Maintainer**:
-Bobadilla Tech

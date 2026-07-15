@@ -287,7 +287,7 @@ import AdContainer from '../components/layout/AdContainer.astro';
           </div>
 
           <div class="api-card">
-            <div class="api-icon">🚀</div>
+            <img src="/images/requiems-api-logo.png" alt="Requiems API" class="api-logo" width="56" height="56" />
             <h3>Enterprise API</h3>
             <p>
               Production-ready REST API for high-volume Lorem Ipsum generation. Scalable, reliable, and built for enterprise applications.
@@ -305,9 +305,10 @@ import AdContainer from '../components/layout/AdContainer.astro';
         </div>
 
         <div class="company-plug">
+          <img src="/images/bobadilla-tech-logo.png" alt="Bobadilla Tech" class="company-logo" width="48" height="48" />
           <p>
             Built by <a href="https://bobadilla.tech/" target="_blank" rel="noopener noreferrer" class="company-link"><strong>Bobadilla Tech</strong></a>
-            - We build fast, reliable developer tools and enterprise solutions.
+            — a LATAM engineering agency that ships MVPs, backend systems, and developer tools like this one.
           </p>
           <div class="company-links">
             <a href="https://github.com/bobadilla-tech" target="_blank" rel="noopener noreferrer" class="social-link">
@@ -624,6 +625,14 @@ import AdContainer from '../components/layout/AdContainer.astro';
     display: block;
   }
 
+  .api-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+
   .api-card h3 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
@@ -684,6 +693,13 @@ import AdContainer from '../components/layout/AdContainer.astro';
     padding-top: 3rem;
     border-top: 2px solid var(--border);
     margin-top: 2rem;
+  }
+
+  .company-logo {
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
   }
 
   .company-plug p {

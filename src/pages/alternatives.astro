@@ -57,6 +57,10 @@ const faqSchema = {
 
         <section class="content-section">
           <h2>Popular Alternatives</h2>
+          <p>
+            These are real, independently-run generators — not made up for this list. Each one swaps the Latin for a
+            theme, follow the link to try the actual tool.
+          </p>
 
           <div class="alternative-card">
             <h3>🥓 Bacon Ipsum</h3>
@@ -66,6 +70,9 @@ const faqSchema = {
             <div class="example-text">
               "Bacon ipsum dolor amet pork chop tenderloin chicken, hamburger ribeye bresaola cupim..."
             </div>
+            <a href="https://www.baconipsum.com/" target="_blank" rel="noopener noreferrer" class="link-button">
+              Visit Bacon Ipsum →
+            </a>
           </div>
 
           <div class="alternative-card">
@@ -76,6 +83,9 @@ const faqSchema = {
             <div class="example-text">
               "Meow all night having their mate disturbing sleeping humans purr like a car engine..."
             </div>
+            <a href="http://www.catipsum.com/" target="_blank" rel="noopener noreferrer" class="link-button">
+              Visit Cat Ipsum →
+            </a>
           </div>
 
           <div class="alternative-card">
@@ -86,6 +96,9 @@ const faqSchema = {
             <div class="example-text">
               "Flannel viral jean shorts, sriracha chia cronut asymmetrical small batch..."
             </div>
+            <a href="https://hipsum.co/" target="_blank" rel="noopener noreferrer" class="link-button">
+              Visit Hipster Ipsum →
+            </a>
           </div>
 
           <div class="alternative-card">
@@ -96,6 +109,9 @@ const faqSchema = {
             <div class="example-text">
               "Synergize cross-platform initiatives to leverage core competencies and maximize ROI..."
             </div>
+            <a href="https://corporatelorem.kovah.de/" target="_blank" rel="noopener noreferrer" class="link-button">
+              Visit Corporate Lorem →
+            </a>
           </div>
 
           <div class="alternative-card">
@@ -106,6 +122,9 @@ const faqSchema = {
             <div class="example-text">
               "Level up your gameplay with strategic power-ups and achieve legendary status..."
             </div>
+            <a href="https://placeholdertext.org/themed/gaming-ipsum/" target="_blank" rel="noopener noreferrer" class="link-button">
+              Visit Gaming Ipsum →
+            </a>
           </div>
 
           <div class="alternative-card">
@@ -116,6 +135,9 @@ const faqSchema = {
             <div class="example-text">
               "You talking to me? May the force be with you as you complete the mission..."
             </div>
+            <a href="https://moviesipsum.com/" target="_blank" rel="noopener noreferrer" class="link-button">
+              Visit Movies Ipsum →
+            </a>
           </div>
         </section>
 
@@ -161,7 +183,7 @@ const faqSchema = {
               <li>Client presentations (unless you know your audience well)</li>
               <li>Formal business proposals</li>
               <li>Projects in conservative industries</li>
-              <li>Internationa clients who may not understand cultural references</li>
+              <li>International clients who may not understand cultural references</li>
             </ul>
           </div>
         </section>
@@ -180,7 +202,8 @@ const faqSchema = {
             </div>
 
             <div class="dev-tool-card">
-              <h4>🚀 Enterprise API</h4>
+              <img src="/images/requiems-api-logo.png" alt="Requiems API" class="dev-tool-logo" width="40" height="40" />
+              <h4>Requiems API</h4>
               <p>Production-ready REST API for high-volume generation</p>
               <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="link-button">
                 View API Docs →
@@ -274,6 +297,7 @@ const faqSchema = {
     border: 1px solid var(--border);
     font-style: italic;
     color: var(--text-secondary);
+    margin-bottom: 1rem;
   }
 
   .use-case-grid {
@@ -335,6 +359,12 @@ const faqSchema = {
     padding: 2rem;
     border-radius: var(--radius-lg);
     border: 1px solid var(--border);
+  }
+
+  .dev-tool-logo {
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    margin-bottom: 0.75rem;
   }
 
   .dev-tool-card h4 {

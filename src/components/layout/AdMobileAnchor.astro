@@ -26,7 +26,9 @@ const adClient = 'ca-pub-XXXXXXXXXXXXXXXXX';
     data-full-width-responsive="true"
   ></ins>
   <script is:inline>
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
   </script>
 </div>
 

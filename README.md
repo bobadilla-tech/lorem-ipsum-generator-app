@@ -6,9 +6,6 @@ dark mode, and exceptional SEO. Optimized for Google Ads revenue.
 
 ![Lorem Ipsum Generator](https://lorem-ipsum.bobadilla.tech/images/og-image.png)
 
-🔗 **Live Demo**:
-[lorem-ipsum.bobadilla.tech](https://lorem-ipsum.bobadilla.tech)
-
 ## ✨ Features
 
 - **⚡ Lightning Fast** - Static site generation with Astro 5

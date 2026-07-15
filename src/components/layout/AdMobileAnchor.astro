@@ -7,44 +7,53 @@ const { adSlot } = Astro.props;
 
 // Replace with your actual AdSense client ID
 const adClient = "ca-pub-XXXXXXXXXXXXXXXXX";
+const hasAdClient = adClient !== "ca-pub-XXXXXXXXXXXXXXXXX";
 ---
 
-<div class="ad-mobile-anchor" id="ad-mobile-anchor">
-  <button class="ad-anchor-close" id="ad-anchor-close" aria-label="Close ad">&times;</button>
-  <div class="ad-label">Advertisement</div>
-  <script
-    async
-    src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`}
-    crossorigin="anonymous"
-  ></script>
-  <ins
-    class="adsbygoogle"
-    style="display:block"
-    data-ad-client={adClient}
-    data-ad-slot={adSlot}
-    data-ad-format="auto"
-    data-full-width-responsive="true"
-  ></ins>
-  <script is:inline>
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    }
-  </script>
-</div>
+{
+  hasAdClient && (
+    <div class="ad-mobile-anchor" id="ad-mobile-anchor">
+      <button class="ad-anchor-close" id="ad-anchor-close" aria-label="Close ad">&times;</button>
+      <div class="ad-label">Advertisement</div>
+      <script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`}
+        crossorigin="anonymous"
+      />
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client={adClient}
+        data-ad-slot={adSlot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+      <script is:inline>
+        if (window.matchMedia('(max-width: 768px)').matches) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      </script>
+    </div>
+  )
+}
 
-<script>
-  const anchor = document.getElementById('ad-mobile-anchor');
-  const closeButton = document.getElementById('ad-anchor-close');
+{
+  hasAdClient && (
+    <script>
+      const anchor = document.getElementById('ad-mobile-anchor');
+      const closeButton = document.getElementById('ad-anchor-close');
 
-  if (anchor && sessionStorage.getItem('ad-anchor-dismissed') === 'true') {
-    anchor.style.display = 'none';
-  }
+      if (anchor && sessionStorage.getItem('ad-anchor-dismissed') === 'true') {
+        anchor.style.display = 'none';
+      }
 
-  closeButton?.addEventListener('click', () => {
-    if (anchor) anchor.style.display = 'none';
-    sessionStorage.setItem('ad-anchor-dismissed', 'true');
-  });
-</script>
+      closeButton?.addEventListener('click', () => {
+        if (anchor) anchor.style.display = 'none';
+        sessionStorage.setItem('ad-anchor-dismissed', 'true');
+      });
+    </script>
+  )
+}
 
 <style>
   .ad-mobile-anchor {

@@ -37,12 +37,21 @@ shipping it see [`deployment.md`](./deployment.md).
 
 ## Customization
 
-**Colors/theme** — CSS variables in `src/styles/global.css`:
+**Colors/theme** — CSS variables in `src/styles/global.css`. Palette
+matches [bobadilla.tech](https://bobadilla.tech) branding (gold accent,
+near-black dark mode), with `[data-theme="dark"]` overriding the
+`:root` light-mode values:
 
 ```css
 :root {
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
+  --accent: #c9a916;
+  --accent-hover: #e6be1a;
+  /* ... */
+}
+
+[data-theme="dark"] {
+  --accent: #e6be1a;
+  --accent-hover: #ffeea8;
   /* ... */
 }
 ```

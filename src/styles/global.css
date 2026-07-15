@@ -19,6 +19,9 @@
   --accent-hover: #e6be1a;
   --border: rgba(20, 15, 10, 0.1);
   --shadow: rgba(0, 0, 0, 0.08);
+  --glow-1: 16%;
+  --glow-2: 14%;
+  --glow-3: 10%;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -54,13 +57,16 @@
 [data-theme="dark"] {
   --bg-primary: #0b0505;
   --bg-secondary: #1a1210;
-  --bg-glass: rgba(11, 5, 5, 0.9);
+  --bg-glass: rgba(11, 5, 5, 0.97);
   --text-primary: #dbdbd7;
   --text-secondary: #9c9c98;
   --accent: #e6be1a;
   --accent-hover: #ffeea8;
   --border: rgba(255, 255, 255, 0.1);
   --shadow: rgba(0, 0, 0, 0.5);
+  --glow-1: 6%;
+  --glow-2: 5%;
+  --glow-3: 4%;
 }
 
 /* Base Styles */

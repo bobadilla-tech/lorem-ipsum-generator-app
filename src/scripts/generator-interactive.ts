@@ -5,6 +5,8 @@ import {
   themedGenerators,
 } from "../lib/lorem-generator";
 
+type ExportFormat = "txt" | "csv" | "js" | "pdf";
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -59,6 +61,9 @@ function initializeGenerator() {
   const copyText = document.getElementById("copy-text") as HTMLSpanElement;
   const charCountEl = document.getElementById("char-count") as HTMLSpanElement;
   const wordCountEl = document.getElementById("word-count") as HTMLSpanElement;
+  const exportButtons = document.querySelectorAll<HTMLButtonElement>(
+    ".export-button",
+  );
 
   // Get form inputs
   const countInput = document.getElementById("count") as HTMLInputElement;
@@ -202,6 +207,95 @@ function initializeGenerator() {
   }
 
   /**
+   * Builds file content for a given export format from the current output text
+   */
+  function buildExportContent(text: string, format: ExportFormat): string {
+    if (format === "csv") {
+      const rows = text
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0);
+      const escaped = rows.map((row) => `"${row.replace(/"/g, '""')}"`);
+      return ["text", ...escaped].join("\n");
+    }
+
+    if (format === "js") {
+      const escaped = text.replace(/\\/g, "\\\\").replace(/`/g, "\\`");
+      return `export const loremIpsum = \`${escaped}\`;\n`;
+    }
+
+    return text;
+  }
+
+  /**
+   * Triggers a browser download for the given content
+   */
+  function downloadBlob(content: string | Blob, mimeType: string, filename: string) {
+    const blob =
+      content instanceof Blob ? content : new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  /**
+   * Exports the current output text as txt, csv, js, or pdf
+   */
+  async function exportOutput(format: ExportFormat) {
+    const text = outputEl.textContent || "";
+
+    if (!text || text.includes('Click "Generate')) {
+      return;
+    }
+
+    const timestamp = Date.now();
+    const filename = `lorem-ipsum-${timestamp}.${format}`;
+
+    if (format === "pdf") {
+      const { jsPDF } = await import("jspdf");
+      const doc = new jsPDF();
+      const margin = 15;
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      const lines = doc.splitTextToSize(text, pageWidth - margin * 2);
+
+      let cursorY = margin;
+      const lineHeight = 7;
+
+      for (const line of lines) {
+        if (cursorY > pageHeight - margin) {
+          doc.addPage();
+          cursorY = margin;
+        }
+        doc.text(line, margin, cursorY);
+        cursorY += lineHeight;
+      }
+
+      doc.save(filename);
+    } else {
+      const content = buildExportContent(text, format);
+      const mimeType =
+        format === "csv"
+          ? "text/csv"
+          : format === "js"
+            ? "text/javascript"
+            : "text/plain";
+      downloadBlob(content, mimeType, filename);
+    }
+
+    trackEvent("export_click", {
+      format,
+      unit: unitSelect.value,
+      theme: themeSelect?.value || "classic",
+    });
+  }
+
+  /**
    * Clear output
    */
   function clearOutput() {
@@ -285,6 +379,15 @@ function initializeGenerator() {
   if (clearButton) {
     clearButton.addEventListener("click", clearOutput);
   }
+
+  exportButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const format = button.dataset.format as ExportFormat | undefined;
+      if (format) {
+        exportOutput(format);
+      }
+    });
+  });
 
   // Preset buttons
   presetButtons.forEach((button) => {

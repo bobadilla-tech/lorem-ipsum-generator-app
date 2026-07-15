@@ -191,14 +191,25 @@ pnpm build
 
 ### Design System
 
+Styling matches [bobadilla.tech](https://bobadilla.tech) branding: gold
+accent on near-black in dark mode, a warm gold-tinted palette in light
+mode. Fonts are Sora (headings) and Space Grotesk (body), loaded via
+Google Fonts in `BaseHead.astro`. Buttons/badges on a gold background
+use dark text (`#0b0505`), not white, for contrast — mirrors the
+`gold` variant in bobadilla.tech's `Button.tsx`.
+
 **CSS Variables** (global.css):
 
 ```css
 /* Light Mode */
---accent: #3b82f6 (blue) --bg-primary: #ffffff --bg-secondary: #f1f5f9
-  --text-primary: #0f172a --text-secondary: #475569 /* Dark Mode */
-  --accent: #60a5fa --bg-primary: #0f172a --bg-secondary: #1e293b
-  --text-primary: #f8fafc --text-secondary: #cbd5e1;
+--accent: #c9a916 (gold-dark) --bg-primary: #fffdf7 --bg-secondary: #f7f2e4
+  --text-primary: #1a1512 --text-secondary: #5c5650 /* Dark Mode */
+  --accent: #e6be1a (gold) --accent-hover: #ffeea8 (gold-light)
+  --bg-primary: #0b0505 --bg-secondary: #1a1210
+  --text-primary: #dbdbd7 --text-secondary: #9c9c98;
+
+/* Fonts */
+--font-heading: "Sora", ... --font-sans: "Space Grotesk", ...
 ```
 
 ## Common Commands

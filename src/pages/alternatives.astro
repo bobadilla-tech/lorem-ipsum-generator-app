@@ -1,36 +1,36 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AdContainer from '../components/layout/AdContainer.astro';
+import AdContainer from "../components/layout/AdContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "What are the most popular alternatives to Lorem Ipsum?",
-      "acceptedAnswer": {
+      name: "What are the most popular alternatives to Lorem Ipsum?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Popular themed alternatives include Bacon Ipsum, Cat Ipsum, Hipster Ipsum, Corporate Ipsum, Gamer Ipsum, and Movie Ipsum, each swapping in themed vocabulary while keeping the same placeholder-text purpose."
-      }
+        text: "Popular themed alternatives include Bacon Ipsum, Cat Ipsum, Hipster Ipsum, Corporate Ipsum, Gamer Ipsum, and Movie Ipsum, each swapping in themed vocabulary while keeping the same placeholder-text purpose.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Should I use a themed Lorem Ipsum alternative for client work?",
-      "acceptedAnswer": {
+      name: "Should I use a themed Lorem Ipsum alternative for client work?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "For formal business proposals, conservative industries, or international clients, stick with traditional Lorem Ipsum. Themed alternatives work best for fun personal projects or internal tools where you know your audience."
-      }
+        text: "For formal business proposals, conservative industries, or international clients, stick with traditional Lorem Ipsum. Themed alternatives work best for fun personal projects or internal tools where you know your audience.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Can I generate Lorem Ipsum programmatically instead of using alternative generators?",
-      "acceptedAnswer": {
+      name: "Can I generate Lorem Ipsum programmatically instead of using alternative generators?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes. The Lorelai Go library and Requiems API both let you generate standard Lorem Ipsum text directly in code, without copy-pasting from a website."
-      }
-    }
-  ]
+        text: "Yes. The Lorelai Go library and Requiems API both let you generate standard Lorem Ipsum text directly in code, without copy-pasting from a website.",
+      },
+    },
+  ],
 };
 ---
 

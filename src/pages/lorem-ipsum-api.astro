@@ -1,38 +1,38 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AdContainer from '../components/layout/AdContainer.astro';
-import CodeBlock from '../components/CodeBlock.astro';
-import TerminalCommand from '../components/TerminalCommand.astro';
+import CodeBlock from "../components/CodeBlock.astro";
+import AdContainer from "../components/layout/AdContainer.astro";
+import TerminalCommand from "../components/TerminalCommand.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "Is there a free way to generate Lorem Ipsum via API?",
-      "acceptedAnswer": {
+      name: "Is there a free way to generate Lorem Ipsum via API?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes. Requiems API's free tier includes the Lorem Ipsum endpoint at 500 requests/month (30 requests/minute) with no credit card required — just sign up for an API key. Lorelai is a free, open-source Go library you can self-host with no request limits or account at all."
-      }
+        text: "Yes. Requiems API's free tier includes the Lorem Ipsum endpoint at 500 requests/month (30 requests/minute) with no credit card required — just sign up for an API key. Lorelai is a free, open-source Go library you can self-host with no request limits or account at all.",
+      },
     },
     {
       "@type": "Question",
-      "name": "What's the difference between Lorelai and Requiems API?",
-      "acceptedAnswer": {
+      name: "What's the difference between Lorelai and Requiems API?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Lorelai is an open-source Go library you import directly into a Go codebase — no network calls, no API key, MIT licensed. Requiems API is a hosted REST API you call over HTTP from any language with an API key, useful when you're not writing Go or want a managed service instead of a dependency."
-      }
+        text: "Lorelai is an open-source Go library you import directly into a Go codebase — no network calls, no API key, MIT licensed. Requiems API is a hosted REST API you call over HTTP from any language with an API key, useful when you're not writing Go or want a managed service instead of a dependency.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Do I need an API key to call the Requiems API Lorem Ipsum endpoint?",
-      "acceptedAnswer": {
+      name: "Do I need an API key to call the Requiems API Lorem Ipsum endpoint?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes — every request needs a requiems-api-key header. Sign up for a free account to get one; the free tier (500 requests/month) doesn't require a credit card."
-      }
-    }
-  ]
+        text: "Yes — every request needs a requiems-api-key header. Sign up for a free account to get one; the free tier (500 requests/month) doesn't require a credit card.",
+      },
+    },
+  ],
 };
 ---
 

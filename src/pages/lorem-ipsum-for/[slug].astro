@@ -1,12 +1,12 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import AdContainer from '../../components/layout/AdContainer.astro';
-import { USE_CASES } from '../../lib/use-cases';
+import AdContainer from "../../components/layout/AdContainer.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { USE_CASES } from "../../lib/use-cases";
 
 export function getStaticPaths() {
   return USE_CASES.map((useCase) => ({
     params: { slug: useCase.slug },
-    props: { useCase }
+    props: { useCase },
   }));
 }
 
@@ -16,16 +16,16 @@ const otherUseCases = USE_CASES.filter((u) => u.slug !== useCase.slug);
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": useCase.faqQuestion,
-      "acceptedAnswer": {
+      name: useCase.faqQuestion,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": useCase.faqAnswer
-      }
-    }
-  ]
+        text: useCase.faqAnswer,
+      },
+    },
+  ],
 };
 ---
 

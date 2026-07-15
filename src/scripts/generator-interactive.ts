@@ -84,7 +84,7 @@ function initializeGenerator() {
    */
   function generateText() {
     const options: GeneratorOptions = {
-      count: parseInt(countInput.value),
+      count: parseInt(countInput.value, 10),
       unit: unitSelect.value as "words" | "sentences" | "paragraphs",
       startWithLorem: startLoremCheckbox.checked,
       format: formatSelect.value as "plain" | "html" | "markdown",
@@ -137,8 +137,10 @@ function initializeGenerator() {
     const plainText = text.replace(/<[^>]*>/g, "");
 
     const charCount = plainText.length;
-    const wordCount =
-      plainText.trim().split(/\s+/).filter((word) => word.length > 0).length;
+    const wordCount = plainText
+      .trim()
+      .split(/\s+/)
+      .filter((word) => word.length > 0).length;
 
     if (charCountEl) {
       charCountEl.textContent = `${charCount.toLocaleString()} character${

@@ -1,20 +1,20 @@
 ---
 interface Props {
   adSlot: string;
-  adFormat?: 'auto' | 'rectangle' | 'horizontal' | 'vertical';
-  adStyle?: 'display:block' | 'display:inline-block';
+  adFormat?: "auto" | "rectangle" | "horizontal" | "vertical";
+  adStyle?: "display:block" | "display:inline-block";
   className?: string;
 }
 
 const {
   adSlot,
-  adFormat = 'auto',
-  adStyle = 'display:block',
-  className = ''
+  adFormat = "auto",
+  adStyle = "display:block",
+  className = "",
 } = Astro.props;
 
 // Replace with your actual AdSense client ID
-const adClient = 'ca-pub-XXXXXXXXXXXXXXXXX';
+const adClient = "ca-pub-XXXXXXXXXXXXXXXXX";
 ---
 
 <div class={`ad-container ${className}`}>

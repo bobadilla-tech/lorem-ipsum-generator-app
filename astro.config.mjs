@@ -1,5 +1,5 @@
-import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://lorem-ipsum.bobadilla.tech",
@@ -33,7 +33,8 @@ export default defineConfig({
           item.priority = 0.5;
         } // Legal/static pages
         else if (
-          item.url.includes("/privacy") || item.url.includes("/terms") ||
+          item.url.includes("/privacy") ||
+          item.url.includes("/terms") ||
           item.url.includes("/contact")
         ) {
           item.changefreq = "yearly";

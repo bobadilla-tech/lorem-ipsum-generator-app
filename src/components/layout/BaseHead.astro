@@ -10,13 +10,21 @@ interface Props {
 const {
   title,
   description,
-  keywords = ['lorem ipsum', 'placeholder text', 'dummy text', 'lorem ipsum generator', 'text generator'],
+  keywords = [
+    "lorem ipsum",
+    "placeholder text",
+    "dummy text",
+    "lorem ipsum generator",
+    "text generator",
+  ],
   image,
-  canonical
+  canonical,
 } = Astro.props;
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
-const socialImage = image ? new URL(image, Astro.site) : new URL('/images/og-image.png', Astro.site);
+const socialImage = image
+  ? new URL(image, Astro.site)
+  : new URL("/images/og-image.png", Astro.site);
 ---
 
 <!-- Primary Meta Tags -->

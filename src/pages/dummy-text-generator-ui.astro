@@ -1,36 +1,36 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AdContainer from '../components/layout/AdContainer.astro';
+import AdContainer from "../components/layout/AdContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "How much placeholder text should I use in a UI mockup?",
-      "acceptedAnswer": {
+      name: "How much placeholder text should I use in a UI mockup?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Match the length to what the real content will realistically be. A button label shouldn't get a full sentence, and a blog preview shouldn't get one word — mismatched lengths hide real layout problems instead of exposing them."
-      }
+        text: "Match the length to what the real content will realistically be. A button label shouldn't get a full sentence, and a blog preview shouldn't get one word — mismatched lengths hide real layout problems instead of exposing them.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Should placeholder text be different lengths in different places?",
-      "acceptedAnswer": {
+      name: "Should placeholder text be different lengths in different places?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes. Testing both a very short and a very long variant of the same field reveals how your UI handles truncation, wrapping, and overflow before real content ever exists."
-      }
+        text: "Yes. Testing both a very short and a very long variant of the same field reveals how your UI handles truncation, wrapping, and overflow before real content ever exists.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Does dummy text in a UI mockup affect accessibility testing?",
-      "acceptedAnswer": {
+      name: "Does dummy text in a UI mockup affect accessibility testing?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Partially. Placeholder text is fine for layout and visual review, but screen reader and reading-level testing should always happen with real copy before launch."
-      }
-    }
-  ]
+        text: "Partially. Placeholder text is fine for layout and visual review, but screen reader and reading-level testing should always happen with real copy before launch.",
+      },
+    },
+  ],
 };
 ---
 

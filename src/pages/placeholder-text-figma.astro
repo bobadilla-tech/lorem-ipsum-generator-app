@@ -1,36 +1,36 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AdContainer from '../components/layout/AdContainer.astro';
+import AdContainer from "../components/layout/AdContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "How do I add placeholder text to a Figma design?",
-      "acceptedAnswer": {
+      name: "How do I add placeholder text to a Figma design?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Generate plain text from a Lorem Ipsum generator, copy it, then paste it directly into any Figma text layer — Figma accepts plain text pasted from the clipboard with no special import step."
-      }
+        text: "Generate plain text from a Lorem Ipsum generator, copy it, then paste it directly into any Figma text layer — Figma accepts plain text pasted from the clipboard with no special import step.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Are there Figma plugins for Lorem Ipsum?",
-      "acceptedAnswer": {
+      name: "Are there Figma plugins for Lorem Ipsum?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes, several exist in the Figma Community plugin directory. A plain-text generator works just as well for most cases and doesn't require installing anything into your Figma account."
-      }
+        text: "Yes, several exist in the Figma Community plugin directory. A plain-text generator works just as well for most cases and doesn't require installing anything into your Figma account.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Should I use HTML or plain text format for Figma?",
-      "acceptedAnswer": {
+      name: "Should I use HTML or plain text format for Figma?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Plain text. Figma text layers don't render HTML tags, so pasting HTML-formatted output will show the literal tags instead of formatted text."
-      }
-    }
-  ]
+        text: "Plain text. Figma text layers don't render HTML tags, so pasting HTML-formatted output will show the literal tags instead of formatted text.",
+      },
+    },
+  ],
 };
 ---
 

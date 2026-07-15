@@ -1,44 +1,44 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AdContainer from '../components/layout/AdContainer.astro';
+import AdContainer from "../components/layout/AdContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
+  mainEntity: [
     {
       "@type": "Question",
-      "name": "Why use Lorem Ipsum instead of real content?",
-      "acceptedAnswer": {
+      name: "Why use Lorem Ipsum instead of real content?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Lorem Ipsum lets designers and developers evaluate a layout without being distracted by readable content, so stakeholders focus on visual design rather than copy."
-      }
+        text: "Lorem Ipsum lets designers and developers evaluate a layout without being distracted by readable content, so stakeholders focus on visual design rather than copy.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Should I replace Lorem Ipsum before launching my site?",
-      "acceptedAnswer": {
+      name: "Should I replace Lorem Ipsum before launching my site?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes. Always replace Lorem Ipsum with real content before going live, and search your codebase for \"lorem\" to catch any missed instances."
-      }
+        text: 'Yes. Always replace Lorem Ipsum with real content before going live, and search your codebase for "lorem" to catch any missed instances.',
+      },
     },
     {
       "@type": "Question",
-      "name": "Does Lorem Ipsum hurt SEO if it's left on a live page?",
-      "acceptedAnswer": {
+      name: "Does Lorem Ipsum hurt SEO if it's left on a live page?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes. Never launch with Lorem Ipsum in meta descriptions, titles, or H1 tags, since it hurts search rankings by replacing meaningful, indexable content."
-      }
+        text: "Yes. Never launch with Lorem Ipsum in meta descriptions, titles, or H1 tags, since it hurts search rankings by replacing meaningful, indexable content.",
+      },
     },
     {
       "@type": "Question",
-      "name": "Can I generate Lorem Ipsum in HTML or Markdown format?",
-      "acceptedAnswer": {
+      name: "Can I generate Lorem Ipsum in HTML or Markdown format?",
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": "Yes. Our generator outputs Plain Text, HTML, or Markdown so it drops directly into your workflow, whether that's a CMS, a static site, or code."
-      }
-    }
-  ]
+        text: "Yes. Our generator outputs Plain Text, HTML, or Markdown so it drops directly into your workflow, whether that's a CMS, a static site, or code.",
+      },
+    },
+  ],
 };
 ---
 

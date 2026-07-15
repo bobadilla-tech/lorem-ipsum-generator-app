@@ -8,12 +8,20 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "check": "biome check .",
+    "typecheck": "astro check"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.28.1",
+  "engines": {
+    "node": ">=22"
+  },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
     "@biomejs/biome": "2.5.4",

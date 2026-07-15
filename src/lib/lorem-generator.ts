@@ -142,11 +142,11 @@ export class LoremGenerator {
         const commaIndex = Math.floor(words.length / 2) +
           Math.floor(Math.random() * 3);
         if (commaIndex < words.length - 1) {
-          words[commaIndex] = words[commaIndex] + ",";
+          words[commaIndex] = `${words[commaIndex]},`;
         }
       }
 
-      sentences.push(words.join(" ") + ".");
+      sentences.push(`${words.join(" ")}.`);
     }
 
     return sentences;
@@ -274,8 +274,6 @@ export class LoremGenerator {
 
       case "markdown":
         return paragraphs.join("\n\n");
-
-      case "plain":
       default:
         return paragraphs.join("\n\n");
     }

@@ -139,8 +139,8 @@ export class LoremGenerator {
 
       // Add comma occasionally for variety (25% chance after 5th word)
       if (words.length > 8 && Math.random() > 0.75) {
-        const commaIndex = Math.floor(words.length / 2) +
-          Math.floor(Math.random() * 3);
+        const commaIndex =
+          Math.floor(words.length / 2) + Math.floor(Math.random() * 3);
         if (commaIndex < words.length - 1) {
           words[commaIndex] = `${words[commaIndex]},`;
         }

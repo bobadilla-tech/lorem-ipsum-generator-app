@@ -260,8 +260,8 @@ function initializeGenerator() {
     const themeGroup = document.getElementById("theme-group");
 
     // Hide "Start with classic opening" and "Style" for non-text generators
-    const isTextUnit = unit !== "emails" && unit !== "urls" &&
-      unit !== "domains";
+    const isTextUnit =
+      unit !== "emails" && unit !== "urls" && unit !== "domains";
 
     if (checkboxGroup) {
       checkboxGroup.style.display = isTextUnit ? "flex" : "none";

@@ -36,24 +36,10 @@
 
   /* Typography */
   --font-sans:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif;
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-mono:
-    "SF Mono",
-    "Monaco",
-    "Inconsolata",
-    "Fira Code",
-    "Roboto Mono",
-    monospace;
+    "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Roboto Mono", monospace;
 
   /* Transitions */
   --transition-fast: 0.15s ease;

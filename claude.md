@@ -9,7 +9,7 @@ through Google AdSense.
 - **Astro** - Static site generator (chosen for SEO and performance)
 - **TypeScript** - Strict mode enabled
 - **pnpm** - Package manager (NOT npm or yarn)
-- **Cloudflare Pages** - Deployment platform
+- **GitHub Pages** - Deployment platform
 
 ### Why Astro?
 
@@ -17,7 +17,7 @@ through Google AdSense.
 - Excellent SEO capabilities (meta tags, structured data, sitemaps)
 - Blazing fast static site generation
 - Built-in image optimization
-- Easy to deploy (free hosting on Cloudflare/Netlify/Vercel)
+- Easy to deploy (free hosting on GitHub Pages, Netlify, or Vercel)
 
 ## Project Structure
 
@@ -178,12 +178,15 @@ pnpm build
 - **CSS**: Compressed
 - **HTML**: Compressed
 
-### Cloudflare Pages Deployment
+### GitHub Pages Deployment
 
-- **Build Command**: `pnpm build`
-- **Build Output**: `dist`
-- **Deploy Command**: Leave blank (automatic)
-- **No wrangler.toml needed** (removed - this is Pages, not Workers)
+- **Workflow**: `.github/workflows/deploy.yml` - builds with `pnpm build`,
+  deploys `dist` via `actions/deploy-pages@v4` on every push to `main`
+- **Custom domain**: `public/CNAME` (`lorem-ipsum.bobadilla.tech`) - must
+  stay committed, GitHub Pages reads it from the deployed artifact
+- **Node version**: pinned via `.nvmrc`, used by the workflow's
+  `setup-node` step
+- Separate `ci.yml` runs lint/typecheck/build on every push and PR
 
 ## Branding & Links
 
@@ -224,11 +227,13 @@ Two harmless warnings appear during build:
 - WhatsApp/Facebook/Twitter won't show SVG previews
 - Always test sharing after deployment
 
-### 3. Cloudflare Pages vs Workers
+### 3. GitHub Pages Custom Domain
 
-- This is a **Pages project**, not Workers
-- Don't use `wrangler deploy` or Workers config
-- Pages auto-deploys from Git
+- `public/CNAME` must stay committed (containing just the domain, no
+  protocol) - deleting it drops the custom domain back to the
+  `*.github.io` default on the next deploy
+- DNS for `lorem-ipsum.bobadilla.tech` must point at GitHub Pages
+  (CNAME/ALIAS record) for the custom domain to resolve
 
 ## Performance Targets
 
@@ -273,7 +278,7 @@ pnpm astro check        # TypeScript + Astro validation
 git status              # Check changes
 git add -A              # Stage all
 git commit -m "msg"     # Commit
-git push                # Push to GitHub (triggers Cloudflare deploy)
+git push                # Push to GitHub (triggers GitHub Pages deploy)
 ```
 
 ## Important Files to Know
@@ -322,4 +327,4 @@ git push                # Push to GitHub (triggers Cloudflare deploy)
 ## Domain & Hosting
 
 - **Domain**: lorem-ipsum.bobadilla.tech
-- **Hosting**: Cloudflare Pages
+- **Hosting**: GitHub Pages

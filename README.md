@@ -5,14 +5,12 @@ and domain names, plus themed variants (Classic, Pirate, Tech, Startup). No
 sign-up, no limits. Keyboard shortcuts, dark mode, and plain text/HTML/Markdown
 output.
 
-**Live**: [lorem-ipsum.bobadilla.tech](https://lorem-ipsum.bobadilla.tech)
-
 ## Stack
 
 - **Astro 5**: static output, ~0KB JS by default, built for SEO and performance
 - **TypeScript**: strict mode
 - **pnpm**: always use pnpm, not npm/yarn
-- **Cloudflare Pages**: hosting
+- **GitHub Pages**: hosting
 
 ## Quick start
 
@@ -29,8 +27,8 @@ pnpm dev   # http://localhost:4321
   ad placements
 - [`docs/core/seo-optimization.md`](docs/core/seo-optimization.md): meta tags,
   sitemap, content strategy, backlinks
-- [`docs/core/deployment.md`](docs/core/deployment.md): Cloudflare
-  Pages/Netlify/Vercel/GitHub Pages, performance targets
+- [`docs/core/deployment.md`](docs/core/deployment.md): GitHub Pages
+  (in use), alternative platforms, performance targets
 
 ## Related projects
 

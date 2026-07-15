@@ -1,17 +1,33 @@
 # Deployment
 
-## Cloudflare Pages (recommended)
+## GitHub Pages (in use)
 
-1. Connect the GitHub repository to Cloudflare Pages.
-2. Build settings:
-   - **Build command**: `pnpm build`
-   - **Output directory**: `dist`
-   - **Node version**: 18 or 20
-3. Deploy command: leave blank (automatic).
+Deploys automatically via `.github/workflows/deploy.yml` on every push to
+`main`, using the modern `actions/deploy-pages@v4` flow (no
+`peaceiris/actions-gh-pages` or personal access token needed):
 
-This is a Pages project, not Workers — no `wrangler.toml` needed.
+1. `pnpm build` runs, `dist` is uploaded as the Pages artifact.
+2. `actions/deploy-pages@v4` publishes it.
+3. Node version comes from `.nvmrc`, read by the workflow's `setup-node`
+   step.
 
-## Netlify
+A separate `.github/workflows/ci.yml` runs lint, typecheck, and build on
+every push and PR, independent of the deploy workflow.
+
+**Custom domain**: `public/CNAME` contains `lorem-ipsum.bobadilla.tech`.
+Keep it committed. GitHub Pages reads it from the deployed artifact on
+every run, so if it's ever removed the site falls back to the default
+`*.github.io` URL on the next deploy. DNS for that domain needs a
+CNAME/ALIAS record pointing at GitHub Pages.
+
+**One-time repo setup** (if not already done): Settings > Pages > Build
+and deployment > Source: "GitHub Actions".
+
+## Alternative platforms (not currently used)
+
+Kept here for reference in case of a future migration.
+
+### Netlify
 
 ```toml
 # netlify.toml
@@ -20,7 +36,7 @@ This is a Pages project, not Workers — no `wrangler.toml` needed.
   publish = "dist"
 ```
 
-## Vercel
+### Vercel
 
 ```json
 {
@@ -29,33 +45,10 @@ This is a Pages project, not Workers — no `wrangler.toml` needed.
 }
 ```
 
-## GitHub Pages
+### Cloudflare Pages
 
-```yaml
-# .github/workflows/deploy.yml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: "pnpm"
-      - run: pnpm install
-      - run: pnpm build
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
+Connect the repo, set build command `pnpm build`, output directory
+`dist`. This is a Pages project, not Workers — no `wrangler.toml` needed.
 
 ## Performance targets
 
@@ -76,5 +69,6 @@ pnpm preview
 - [ ] `pnpm build` succeeds with no errors
 - [ ] Real AdSense Publisher ID + ad slot IDs set (see `adsense-setup.md`)
 - [ ] `astro.config.mjs` `site` matches the real domain
+- [ ] `public/CNAME` still committed and correct
 - [ ] OG image renders correctly in a social share preview
 - [ ] Sitemap submitted to Search Console / Bing Webmaster Tools

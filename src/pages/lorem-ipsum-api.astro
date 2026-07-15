@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AdContainer from '../components/layout/AdContainer.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import TerminalCommand from '../components/TerminalCommand.astro';
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -11,7 +13,7 @@ const faqSchema = {
       "name": "Is there a free way to generate Lorem Ipsum via API?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Requiems API offers a free tier (500 requests, 30 requests/minute) that includes the Lorem Ipsum endpoint, and Lorelai is a free, open-source Go library you can self-host with no request limits at all."
+        "text": "Yes. Requiems API's free tier includes the Lorem Ipsum endpoint at 500 requests/month (30 requests/minute) with no credit card required — just sign up for an API key. Lorelai is a free, open-source Go library you can self-host with no request limits or account at all."
       }
     },
     {
@@ -19,15 +21,15 @@ const faqSchema = {
       "name": "What's the difference between Lorelai and Requiems API?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lorelai is an open-source Go library you import directly into a Go codebase — no network calls, no rate limits, MIT licensed. Requiems API is a hosted REST API you call over HTTP from any language, useful when you're not writing Go or want a managed service instead of a dependency."
+        "text": "Lorelai is an open-source Go library you import directly into a Go codebase — no network calls, no API key, MIT licensed. Requiems API is a hosted REST API you call over HTTP from any language with an API key, useful when you're not writing Go or want a managed service instead of a dependency."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I generate Lorem Ipsum from the command line with curl?",
+      "name": "Do I need an API key to call the Requiems API Lorem Ipsum endpoint?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — a single GET request to the Requiems API Lorem Ipsum endpoint returns generated text directly, no SDK or API key setup required for the free tier."
+        "text": "Yes — every request needs a requiems-api-key header. Sign up for a free account to get one; the free tier (500 requests/month) doesn't require a credit card."
       }
     }
   ]
@@ -63,12 +65,13 @@ const faqSchema = {
 
           <div class="dev-tools-grid">
             <div class="dev-tool-card">
-              <h4>📦 Lorelai — Go Library</h4>
+              <img src="/images/gopher.png" alt="Lorelai" class="dev-tool-logo" width="40" height="40" />
+              <h4>Lorelai — Go Library</h4>
               <p>
                 Import it directly into a Go codebase. No network calls, no rate limits, MIT licensed. Best when
                 you're already writing Go and want zero external dependencies.
               </p>
-              <pre class="code-example"><code>go get github.com/bobadilla-tech/lorelai</code></pre>
+              <TerminalCommand command="go get github.com/bobadilla-tech/lorelai" />
               <a href="https://github.com/bobadilla-tech/lorelai" target="_blank" rel="noopener noreferrer" class="link-button">
                 View on GitHub →
               </a>
@@ -79,36 +82,55 @@ const faqSchema = {
               <h4>Requiems API — REST Endpoint</h4>
               <p>
                 A hosted HTTP endpoint you can call from any language — no Go dependency required. Part of a larger
-                all-in-one SaaS backend covering auth, validation, and more.
+                all-in-one SaaS backend covering auth, validation, and more. Needs a free API key (no credit card).
               </p>
-              <pre class="code-example"><code>curl https://requiems.xyz/v1/text/lorem</code></pre>
-              <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="link-button">
-                View API Docs →
-              </a>
+              <TerminalCommand command={`curl "https://api.requiems.xyz/v1/text/lorem?paragraphs=3" -H "requiems-api-key: YOUR_API_KEY"`} />
+              <div class="button-row">
+                <a href="https://requiems.xyz/users/sign_up" target="_blank" rel="noopener noreferrer" class="link-button">
+                  Get Your Free API Key →
+                </a>
+                <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="link-button link-button-secondary">
+                  View API Docs →
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
         <section class="content-section">
           <h2>Calling It From Your Language</h2>
+          <p class="section-note">
+            Every Requiems API request needs a <code>requiems-api-key</code> header —
+            <a href="https://requiems.xyz/users/sign_up" target="_blank" rel="noopener noreferrer">get a free one here</a>,
+            no credit card required.
+          </p>
 
           <div class="use-case">
             <h3>JavaScript / Node.js</h3>
-            <pre class="code-example"><code>const res = await fetch('https://requiems.xyz/v1/text/lorem');
-const {'{'} text {'}'} = await res.json();</code></pre>
+            <CodeBlock lang="javascript" code={`const res = await fetch('https://api.requiems.xyz/v1/text/lorem?paragraphs=3', {
+  headers: { 'requiems-api-key': 'YOUR_API_KEY' }
+});
+const { data } = await res.json();
+console.log(data.text);`} />
           </div>
 
           <div class="use-case">
             <h3>Python</h3>
-            <pre class="code-example"><code>import requests
-text = requests.get("https://requiems.xyz/v1/text/lorem").json()["text"]</code></pre>
+            <CodeBlock lang="python" code={`import requests
+
+res = requests.get(
+    "https://api.requiems.xyz/v1/text/lorem",
+    params={"paragraphs": 3},
+    headers={"requiems-api-key": "YOUR_API_KEY"}
+)
+text = res.json()["data"]["text"]`} />
           </div>
 
           <div class="use-case">
             <h3>Go (via Lorelai, no network call)</h3>
-            <pre class="code-example"><code>import "github.com/bobadilla-tech/lorelai"
+            <CodeBlock lang="go" code={`import "github.com/bobadilla-tech/lorelai"
 
-text := lorelai.Generate(lorelai.Options{'{'}Paragraphs: 3{'}'})</code></pre>
+text := lorelai.Generate(lorelai.Options{Paragraphs: 3})`} />
           </div>
         </section>
 
@@ -241,21 +263,6 @@ text := lorelai.Generate(lorelai.Options{'{'}Paragraphs: 3{'}'})</code></pre>
     color: var(--accent);
   }
 
-  .code-example {
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1.25rem;
-    margin: 0 0 1.5rem;
-    font-family: var(--font-mono);
-    overflow-x: auto;
-  }
-
-  .code-example code {
-    font-size: 0.9375rem;
-    color: var(--accent);
-  }
-
   .use-case-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -282,6 +289,12 @@ text := lorelai.Generate(lorelai.Options{'{'}Paragraphs: 3{'}'})</code></pre>
     margin: 0;
   }
 
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
   .link-button {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -295,6 +308,40 @@ text := lorelai.Generate(lorelai.Options{'{'}Paragraphs: 3{'}'})</code></pre>
 
   .link-button:hover {
     background: var(--accent-hover);
+  }
+
+  .link-button-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+
+  .link-button-secondary:hover {
+    background: var(--bg-glass);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .section-note {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+  }
+
+  .section-note a {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .section-note code {
+    font-family: var(--font-mono);
+    background: var(--bg-primary);
+    padding: 0.125rem 0.375rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875em;
   }
 
   .cta-section {

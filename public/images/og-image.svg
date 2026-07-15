@@ -1,25 +1,56 @@
 <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="0%" style="stop-color: #3b82f6; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #8b5cf6; stop-opacity: 1" />
     </linearGradient>
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#grad)"/>
+  <rect width="1200" height="630" fill="url(#grad)" />
 
   <!-- Decorative circles -->
-  <circle cx="100" cy="100" r="150" fill="rgba(255,255,255,0.1)"/>
-  <circle cx="1100" cy="530" r="200" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="100" cy="100" r="150" fill="rgba(255,255,255,0.1)" />
+  <circle cx="1100" cy="530" r="200" fill="rgba(255,255,255,0.1)" />
 
   <!-- Main Title -->
-  <text x="600" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">Lorem Ipsum</text>
-  <text x="600" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">Generator</text>
+  <text
+    x="600"
+    y="240"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="80"
+    font-weight="bold"
+    fill="white"
+    text-anchor="middle"
+  >Lorem Ipsum</text>
+  <text
+    x="600"
+    y="320"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="80"
+    font-weight="bold"
+    fill="white"
+    text-anchor="middle"
+  >Generator</text>
 
   <!-- Subtitle -->
-  <text x="600" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="rgba(255,255,255,0.95)" text-anchor="middle">Fast, Modern, Free Placeholder Text</text>
+  <text
+    x="600"
+    y="400"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="32"
+    fill="rgba(255,255,255,0.95)"
+    text-anchor="middle"
+  >Fast, Modern, Free Placeholder Text</text>
 
   <!-- Footer -->
-  <text x="600" y="550" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="rgba(255,255,255,0.9)" text-anchor="middle">Powered by Bobadilla Tech</text>
+  <text
+    x="600"
+    y="550"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="24"
+    font-weight="600"
+    fill="rgba(255,255,255,0.9)"
+    text-anchor="middle"
+  >Powered by Bobadilla Tech</text>
 </svg>

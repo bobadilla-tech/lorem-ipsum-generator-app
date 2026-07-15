@@ -1,8 +1,8 @@
 # Lorem Ipsum Generator
 
-A modern, ad-optimized web application for
-generating Lorem Ipsum text, random emails, URLs, and domain names. Built with
-Astro 5, designed for passive income through Google AdSense.
+A modern, ad-optimized web application for generating Lorem Ipsum text, random
+emails, URLs, and domain names. Built with Astro 5, designed for passive income
+through Google AdSense.
 
 ## Tech Stack & Architecture
 
@@ -203,9 +203,9 @@ pnpm build
 ```css
 /* Light Mode */
 --accent: #3b82f6 (blue) --bg-primary: #ffffff --bg-secondary: #f1f5f9
-  --text-primary: #0f172a --text-secondary: #475569 /* Dark Mode */
-  --accent: #60a5fa --bg-primary: #0f172a --bg-secondary: #1e293b
-  --text-primary: #f8fafc --text-secondary: #cbd5e1;
+  --text-primary: #0f172a --text-secondary: #475569 /* Dark Mode */ --accent:
+  #60a5fa --bg-primary: #0f172a --bg-secondary: #1e293b --text-primary: #f8fafc
+  --text-secondary: #cbd5e1;
 ```
 
 ## Known Issues & Gotchas

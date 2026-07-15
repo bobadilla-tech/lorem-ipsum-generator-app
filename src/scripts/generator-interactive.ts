@@ -1,4 +1,9 @@
-import { loremGenerator, themedGenerators, type GeneratorOptions, type IpsumTheme } from '../lib/lorem-generator';
+import {
+  type GeneratorOptions,
+  type IpsumTheme,
+  loremGenerator,
+  themedGenerators,
+} from "../lib/lorem-generator";
 
 declare global {
   interface Window {
@@ -10,40 +15,46 @@ declare global {
  * Sends an analytics event if GA4 is loaded (no-op otherwise, e.g. ad blockers)
  */
 function trackEvent(name: string, params?: Record<string, unknown>) {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-    window.gtag('event', name, params);
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", name, params);
   }
 }
 
 // Wait for DOM to be ready
-if (typeof window !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', () => {
+if (typeof window !== "undefined") {
+  document.addEventListener("DOMContentLoaded", () => {
     initializeGenerator();
   });
 }
 
 function initializeGenerator() {
   // Get DOM elements
-  const form = document.getElementById('generator-form') as HTMLFormElement;
-  const outputEl = document.getElementById('output') as HTMLDivElement;
-  const copyButton = document.getElementById('copy-button') as HTMLButtonElement;
-  const clearButton = document.getElementById('clear-button') as HTMLButtonElement;
-  const copyText = document.getElementById('copy-text') as HTMLSpanElement;
-  const charCountEl = document.getElementById('char-count') as HTMLSpanElement;
-  const wordCountEl = document.getElementById('word-count') as HTMLSpanElement;
+  const form = document.getElementById("generator-form") as HTMLFormElement;
+  const outputEl = document.getElementById("output") as HTMLDivElement;
+  const copyButton = document.getElementById(
+    "copy-button",
+  ) as HTMLButtonElement;
+  const clearButton = document.getElementById(
+    "clear-button",
+  ) as HTMLButtonElement;
+  const copyText = document.getElementById("copy-text") as HTMLSpanElement;
+  const charCountEl = document.getElementById("char-count") as HTMLSpanElement;
+  const wordCountEl = document.getElementById("word-count") as HTMLSpanElement;
 
   // Get form inputs
-  const countInput = document.getElementById('count') as HTMLInputElement;
-  const unitSelect = document.getElementById('unit') as HTMLSelectElement;
-  const formatSelect = document.getElementById('format') as HTMLSelectElement;
-  const themeSelect = document.getElementById('theme') as HTMLSelectElement;
-  const startLoremCheckbox = document.getElementById('start-lorem') as HTMLInputElement;
+  const countInput = document.getElementById("count") as HTMLInputElement;
+  const unitSelect = document.getElementById("unit") as HTMLSelectElement;
+  const formatSelect = document.getElementById("format") as HTMLSelectElement;
+  const themeSelect = document.getElementById("theme") as HTMLSelectElement;
+  const startLoremCheckbox = document.getElementById(
+    "start-lorem",
+  ) as HTMLInputElement;
 
   // Preset buttons
-  const presetButtons = document.querySelectorAll('.preset-btn');
+  const presetButtons = document.querySelectorAll(".preset-btn");
 
   if (!form || !outputEl) {
-    console.error('Required elements not found');
+    console.error("Required elements not found");
     return;
   }
 
@@ -53,16 +64,16 @@ function initializeGenerator() {
   function generateText() {
     const options: GeneratorOptions = {
       count: parseInt(countInput.value),
-      unit: unitSelect.value as 'words' | 'sentences' | 'paragraphs',
+      unit: unitSelect.value as "words" | "sentences" | "paragraphs",
       startWithLorem: startLoremCheckbox.checked,
-      format: formatSelect.value as 'plain' | 'html' | 'markdown'
+      format: formatSelect.value as "plain" | "html" | "markdown",
     };
 
-    const theme = (themeSelect?.value || 'classic') as IpsumTheme;
+    const theme = (themeSelect?.value || "classic") as IpsumTheme;
     const generator = themedGenerators[theme] ?? loremGenerator;
 
     // Show loading state
-    outputEl.classList.add('loading');
+    outputEl.classList.add("loading");
 
     // Simulate slight delay for better UX (allows loading animation to show)
     setTimeout(() => {
@@ -70,10 +81,10 @@ function initializeGenerator() {
         const generatedText = generator.generate(options);
 
         // Update output based on format
-        if (options.format === 'html') {
+        if (options.format === "html") {
           // Show HTML as rendered content
           outputEl.innerHTML = generatedText;
-        } else if (options.format === 'markdown') {
+        } else if (options.format === "markdown") {
           // Show markdown as plain text (formatted)
           outputEl.textContent = generatedText;
         } else {
@@ -85,14 +96,14 @@ function initializeGenerator() {
         updateStats(generatedText);
 
         // Remove loading state
-        outputEl.classList.remove('loading');
+        outputEl.classList.remove("loading");
 
         // Smooth scroll to output
-        outputEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        outputEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
       } catch (error) {
-        console.error('Generation error:', error);
-        outputEl.textContent = 'Error generating text. Please try again.';
-        outputEl.classList.remove('loading');
+        console.error("Generation error:", error);
+        outputEl.textContent = "Error generating text. Please try again.";
+        outputEl.classList.remove("loading");
       }
     }, 100);
   }
@@ -102,17 +113,22 @@ function initializeGenerator() {
    */
   function updateStats(text: string) {
     // Remove HTML tags for accurate count
-    const plainText = text.replace(/<[^>]*>/g, '');
+    const plainText = text.replace(/<[^>]*>/g, "");
 
     const charCount = plainText.length;
-    const wordCount = plainText.trim().split(/\s+/).filter(word => word.length > 0).length;
+    const wordCount =
+      plainText.trim().split(/\s+/).filter((word) => word.length > 0).length;
 
     if (charCountEl) {
-      charCountEl.textContent = `${charCount.toLocaleString()} character${charCount !== 1 ? 's' : ''}`;
+      charCountEl.textContent = `${charCount.toLocaleString()} character${
+        charCount !== 1 ? "s" : ""
+      }`;
     }
 
     if (wordCountEl) {
-      wordCountEl.textContent = `${wordCount.toLocaleString()} word${wordCount !== 1 ? 's' : ''}`;
+      wordCountEl.textContent = `${wordCount.toLocaleString()} word${
+        wordCount !== 1 ? "s" : ""
+      }`;
     }
   }
 
@@ -121,7 +137,7 @@ function initializeGenerator() {
    */
   async function copyToClipboard() {
     try {
-      const text = outputEl.textContent || '';
+      const text = outputEl.textContent || "";
 
       if (!text || text.includes('Click "Generate')) {
         return;
@@ -129,34 +145,34 @@ function initializeGenerator() {
 
       await navigator.clipboard.writeText(text);
 
-      trackEvent('copy_click', {
+      trackEvent("copy_click", {
         unit: unitSelect.value,
-        theme: themeSelect?.value || 'classic',
-        format: formatSelect.value
+        theme: themeSelect?.value || "classic",
+        format: formatSelect.value,
       });
 
       // Show success feedback
-      copyButton.classList.add('success');
+      copyButton.classList.add("success");
       if (copyText) {
-        copyText.textContent = 'Copied!';
+        copyText.textContent = "Copied!";
       }
 
       // Reset after 2 seconds
       setTimeout(() => {
-        copyButton.classList.remove('success');
+        copyButton.classList.remove("success");
         if (copyText) {
-          copyText.textContent = 'Copy to Clipboard';
+          copyText.textContent = "Copy to Clipboard";
         }
       }, 2000);
     } catch (error) {
-      console.error('Copy failed:', error);
+      console.error("Copy failed:", error);
       if (copyText) {
-        copyText.textContent = 'Copy failed';
+        copyText.textContent = "Copy failed";
       }
 
       setTimeout(() => {
         if (copyText) {
-          copyText.textContent = 'Copy to Clipboard';
+          copyText.textContent = "Copy to Clipboard";
         }
       }, 2000);
     }
@@ -166,9 +182,10 @@ function initializeGenerator() {
    * Clear output
    */
   function clearOutput() {
-    outputEl.innerHTML = '<p class="placeholder-text">Click "Generate Lorem Ipsum" to create placeholder text...</p>';
-    if (charCountEl) charCountEl.textContent = '0 characters';
-    if (wordCountEl) wordCountEl.textContent = '0 words';
+    outputEl.innerHTML =
+      '<p class="placeholder-text">Click "Generate Lorem Ipsum" to create placeholder text...</p>';
+    if (charCountEl) charCountEl.textContent = "0 characters";
+    if (wordCountEl) wordCountEl.textContent = "0 words";
   }
 
   /**
@@ -176,29 +193,29 @@ function initializeGenerator() {
    */
   function handlePresetClick(preset: string) {
     switch (preset) {
-      case '1-para':
-        countInput.value = '1';
-        unitSelect.value = 'paragraphs';
+      case "1-para":
+        countInput.value = "1";
+        unitSelect.value = "paragraphs";
         break;
-      case '3-para':
-        countInput.value = '3';
-        unitSelect.value = 'paragraphs';
+      case "3-para":
+        countInput.value = "3";
+        unitSelect.value = "paragraphs";
         break;
-      case '5-para':
-        countInput.value = '5';
-        unitSelect.value = 'paragraphs';
+      case "5-para":
+        countInput.value = "5";
+        unitSelect.value = "paragraphs";
         break;
-      case '10-para':
-        countInput.value = '10';
-        unitSelect.value = 'paragraphs';
+      case "10-para":
+        countInput.value = "10";
+        unitSelect.value = "paragraphs";
         break;
-      case '10-emails':
-        countInput.value = '10';
-        unitSelect.value = 'emails';
+      case "10-emails":
+        countInput.value = "10";
+        unitSelect.value = "emails";
         break;
-      case '5-urls':
-        countInput.value = '5';
-        unitSelect.value = 'urls';
+      case "5-urls":
+        countInput.value = "5";
+        unitSelect.value = "urls";
         break;
     }
 
@@ -214,39 +231,42 @@ function initializeGenerator() {
    */
   function updateUIForUnit() {
     const unit = unitSelect.value;
-    const checkboxGroup = document.querySelector('.checkbox-group') as HTMLElement;
-    const themeGroup = document.getElementById('theme-group');
+    const checkboxGroup = document.querySelector(
+      ".checkbox-group",
+    ) as HTMLElement;
+    const themeGroup = document.getElementById("theme-group");
 
     // Hide "Start with classic opening" and "Style" for non-text generators
-    const isTextUnit = unit !== 'emails' && unit !== 'urls' && unit !== 'domains';
+    const isTextUnit = unit !== "emails" && unit !== "urls" &&
+      unit !== "domains";
 
     if (checkboxGroup) {
-      checkboxGroup.style.display = isTextUnit ? 'flex' : 'none';
+      checkboxGroup.style.display = isTextUnit ? "flex" : "none";
     }
 
     if (themeGroup) {
-      themeGroup.style.display = isTextUnit ? 'flex' : 'none';
+      themeGroup.style.display = isTextUnit ? "flex" : "none";
     }
   }
 
   // Event Listeners
-  form.addEventListener('submit', (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     generateText();
   });
 
   if (copyButton) {
-    copyButton.addEventListener('click', copyToClipboard);
+    copyButton.addEventListener("click", copyToClipboard);
   }
 
   if (clearButton) {
-    clearButton.addEventListener('click', clearOutput);
+    clearButton.addEventListener("click", clearOutput);
   }
 
   // Preset buttons
   presetButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const preset = button.getAttribute('data-preset');
+    button.addEventListener("click", () => {
+      const preset = button.getAttribute("data-preset");
       if (preset) {
         handlePresetClick(preset);
       }
@@ -254,20 +274,20 @@ function initializeGenerator() {
   });
 
   // Update UI when unit changes
-  unitSelect?.addEventListener('change', () => {
+  unitSelect?.addEventListener("change", () => {
     updateUIForUnit();
   });
 
   // Keyboard Shortcuts
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener("keydown", (e) => {
     // Ctrl+G or Cmd+G: Generate
-    if ((e.ctrlKey || e.metaKey) && e.key === 'g') {
+    if ((e.ctrlKey || e.metaKey) && e.key === "g") {
       e.preventDefault();
       generateText();
     }
 
     // Ctrl+K or Cmd+K: Copy (more intuitive than Ctrl+C which is system copy)
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    if ((e.ctrlKey || e.metaKey) && e.key === "k") {
       e.preventDefault();
       copyToClipboard();
     }

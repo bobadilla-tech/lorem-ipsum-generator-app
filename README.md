@@ -52,37 +52,6 @@ pnpm preview
 
 The site will be available at `http://localhost:4321`
 
-## 📁 Project Structure
-
-```
-lorem-ipsum/
-├── public/                  # Static assets
-│   ├── favicon.svg
-│   ├── robots.txt
-│   └── images/
-├── src/
-│   ├── components/
-│   │   ├── layout/         # Header, Footer, BaseHead, AdContainer
-│   │   └── generator/      # GeneratorControls, OutputDisplay
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   ├── lib/
-│   │   ├── lorem-generator.ts  # Core generation algorithm
-│   │   └── word-bank.ts        # Latin word corpus
-│   ├── pages/
-│   │   ├── index.astro         # Homepage with generator
-│   │   ├── history.astro       # Lorem Ipsum history
-│   │   ├── usage.astro         # Usage guide
-│   │   └── alternatives.astro  # Alternative generators
-│   ├── scripts/
-│   │   └── generator-interactive.ts  # Client-side functionality
-│   └── styles/
-│       └── global.css          # Global styles and CSS variables
-├── astro.config.mjs
-├── tsconfig.json
-└── package.json
-```
-
 ## 🎯 Core Algorithm
 
 The generator supports multiple types of placeholder content:
@@ -322,18 +291,17 @@ lsof -ti:4321 | xargs kill -9
 pnpm dev
 ```
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Cicero** - For "De finibus bonorum et malorum" (45 BC)
 - **Astro Team** - For the amazing static site generator
-- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Bobadilla Tech's Go
-  library for Lorem Ipsum generation (inspiration for this project)
 
-## 🔗 Related Projects
+## Related Projects
 
-- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Lorem Ipsum
-  generator library for Go
-- **[Requiems API](https://requiems.xyz)** - Enterprise API solutions by
+- **[Lorelai](https://github.com/bobadilla-tech/lorelai)**: Production grade
+  Lorem Ipsum generator library for Go
+
+- **[Requiems API](https://requiems.xyz)**: Enterprise API solutions by
   Bobadilla Tech
 
 ---

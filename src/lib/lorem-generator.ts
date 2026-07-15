@@ -1,13 +1,23 @@
 import {
-  LOREM_WORDS, CLASSIC_OPENING,
-  PIRATE_WORDS, PIRATE_OPENING,
-  TECH_WORDS, TECH_OPENING,
-  STARTUP_WORDS, STARTUP_OPENING
-} from './word-bank';
+  CLASSIC_OPENING,
+  LOREM_WORDS,
+  PIRATE_OPENING,
+  PIRATE_WORDS,
+  STARTUP_OPENING,
+  STARTUP_WORDS,
+  TECH_OPENING,
+  TECH_WORDS,
+} from "./word-bank";
 
-export type GeneratorUnit = 'words' | 'sentences' | 'paragraphs' | 'emails' | 'urls' | 'domains';
-export type OutputFormat = 'plain' | 'html' | 'markdown';
-export type IpsumTheme = 'classic' | 'pirate' | 'tech' | 'startup';
+export type GeneratorUnit =
+  | "words"
+  | "sentences"
+  | "paragraphs"
+  | "emails"
+  | "urls"
+  | "domains";
+export type OutputFormat = "plain" | "html" | "markdown";
+export type IpsumTheme = "classic" | "pirate" | "tech" | "startup";
 
 export interface GeneratorOptions {
   count: number;
@@ -17,13 +27,27 @@ export interface GeneratorOptions {
 }
 
 // TLDs for domain generation
-const TLDS = ['com', 'net', 'org', 'io', 'dev', 'app', 'co', 'tech', 'info', 'biz'];
+const TLDS = [
+  "com",
+  "net",
+  "org",
+  "io",
+  "dev",
+  "app",
+  "co",
+  "tech",
+  "info",
+  "biz",
+];
 
 export class LoremGenerator {
   private words: string[];
   private opening: string[];
 
-  constructor(words: string[] = LOREM_WORDS, opening: string[] = CLASSIC_OPENING) {
+  constructor(
+    words: string[] = LOREM_WORDS,
+    opening: string[] = CLASSIC_OPENING,
+  ) {
     this.words = words;
     this.opening = opening;
   }
@@ -35,27 +59,36 @@ export class LoremGenerator {
     let content: string[];
 
     switch (options.unit) {
-      case 'words':
-        content = [this.generateWords(options.count, options.startWithLorem).join(' ')];
+      case "words":
+        content = [
+          this.generateWords(options.count, options.startWithLorem).join(" "),
+        ];
         break;
 
-      case 'sentences':
-        content = [this.generateSentences(options.count, options.startWithLorem).join(' ')];
+      case "sentences":
+        content = [
+          this.generateSentences(options.count, options.startWithLorem).join(
+            " ",
+          ),
+        ];
         break;
 
-      case 'paragraphs':
-        content = this.generateParagraphs(options.count, options.startWithLorem);
+      case "paragraphs":
+        content = this.generateParagraphs(
+          options.count,
+          options.startWithLorem,
+        );
         break;
 
-      case 'emails':
+      case "emails":
         content = this.generateEmails(options.count);
         break;
 
-      case 'urls':
+      case "urls":
         content = this.generateUrls(options.count);
         break;
 
-      case 'domains':
+      case "domains":
         content = this.generateDomains(options.count);
         break;
 
@@ -106,13 +139,14 @@ export class LoremGenerator {
 
       // Add comma occasionally for variety (25% chance after 5th word)
       if (words.length > 8 && Math.random() > 0.75) {
-        const commaIndex = Math.floor(words.length / 2) + Math.floor(Math.random() * 3);
+        const commaIndex = Math.floor(words.length / 2) +
+          Math.floor(Math.random() * 3);
         if (commaIndex < words.length - 1) {
-          words[commaIndex] = words[commaIndex] + ',';
+          words[commaIndex] = words[commaIndex] + ",";
         }
       }
 
-      sentences.push(words.join(' ') + '.');
+      sentences.push(words.join(" ") + ".");
     }
 
     return sentences;
@@ -130,9 +164,12 @@ export class LoremGenerator {
       // Use Gaussian distribution for natural paragraph length
       // Average: 5 sentences, Standard deviation: 2 sentences
       const sentenceCount = Math.max(3, Math.floor(this.gaussian(5, 2)));
-      const sentences = this.generateSentences(sentenceCount, shouldStartWithLorem);
+      const sentences = this.generateSentences(
+        sentenceCount,
+        shouldStartWithLorem,
+      );
 
-      paragraphs.push(sentences.join(' '));
+      paragraphs.push(sentences.join(" "));
     }
 
     return paragraphs;
@@ -154,10 +191,16 @@ export class LoremGenerator {
    */
   private generateEmails(count: number): string[] {
     const emails: string[] = [];
-    const providers = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'example.com'];
+    const providers = [
+      "gmail.com",
+      "yahoo.com",
+      "hotmail.com",
+      "outlook.com",
+      "example.com",
+    ];
 
     for (let i = 0; i < count; i++) {
-      const username = this.generateWords(2, false).join('.');
+      const username = this.generateWords(2, false).join(".");
       const provider = providers[Math.floor(Math.random() * providers.length)];
       emails.push(`${username}@${provider}`);
     }
@@ -170,8 +213,16 @@ export class LoremGenerator {
    */
   private generateUrls(count: number): string[] {
     const urls: string[] = [];
-    const protocols = ['https://'];
-    const paths = ['blog', 'about', 'products', 'services', 'contact', 'news', 'resources'];
+    const protocols = ["https://"];
+    const paths = [
+      "blog",
+      "about",
+      "products",
+      "services",
+      "contact",
+      "news",
+      "resources",
+    ];
 
     for (let i = 0; i < count; i++) {
       const protocol = protocols[Math.floor(Math.random() * protocols.length)];
@@ -197,7 +248,7 @@ export class LoremGenerator {
 
     for (let i = 0; i < count; i++) {
       const nameLength = Math.floor(Math.random() * 2) + 1; // 1-2 words
-      const name = this.generateWords(nameLength, false).join('');
+      const name = this.generateWords(nameLength, false).join("");
       const tld = TLDS[Math.floor(Math.random() * TLDS.length)];
       domains.push(`${name}.${tld}`);
     }
@@ -218,15 +269,15 @@ export class LoremGenerator {
    */
   private formatContent(paragraphs: string[], format: OutputFormat): string {
     switch (format) {
-      case 'html':
-        return paragraphs.map(p => `<p>${p}</p>`).join('\n');
+      case "html":
+        return paragraphs.map((p) => `<p>${p}</p>`).join("\n");
 
-      case 'markdown':
-        return paragraphs.join('\n\n');
+      case "markdown":
+        return paragraphs.join("\n\n");
 
-      case 'plain':
+      case "plain":
       default:
-        return paragraphs.join('\n\n');
+        return paragraphs.join("\n\n");
     }
   }
 }
@@ -239,5 +290,5 @@ export const themedGenerators: Record<IpsumTheme, LoremGenerator> = {
   classic: loremGenerator,
   pirate: new LoremGenerator(PIRATE_WORDS, PIRATE_OPENING),
   tech: new LoremGenerator(TECH_WORDS, TECH_OPENING),
-  startup: new LoremGenerator(STARTUP_WORDS, STARTUP_OPENING)
+  startup: new LoremGenerator(STARTUP_WORDS, STARTUP_OPENING),
 };

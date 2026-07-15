@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import GeneratorControls from '../components/generator/GeneratorControls.astro';
 import OutputDisplay from '../components/generator/OutputDisplay.astro';
 import AdContainer from '../components/layout/AdContainer.astro';
+import TerminalCommand from '../components/TerminalCommand.astro';
 ---
 
 <BaseLayout
@@ -291,7 +292,7 @@ import AdContainer from '../components/layout/AdContainer.astro';
 
         <div class="api-grid">
           <div class="api-card">
-            <div class="api-icon">📦</div>
+            <img src="/images/gopher.png" alt="Lorelai" class="api-logo" width="56" height="56" />
             <h3>Lorelai - Open Source Go Library</h3>
             <p>
               A fast, lightweight Lorem Ipsum generator written in Go. Perfect for CLI tools, backend services, and automation scripts.
@@ -304,7 +305,7 @@ import AdContainer from '../components/layout/AdContainer.astro';
             <a href="https://github.com/bobadilla-tech/lorelai" target="_blank" rel="noopener noreferrer" class="button button-secondary">
               View on GitHub →
             </a>
-            <pre class="code-example"><code>go get github.com/bobadilla-tech/lorelai</code></pre>
+            <TerminalCommand command="go get github.com/bobadilla-tech/lorelai" />
           </div>
 
           <div class="api-card">
@@ -312,17 +313,17 @@ import AdContainer from '../components/layout/AdContainer.astro';
             <p class="api-eyebrow">Need dynamic text via API?</p>
             <h3>Enterprise API</h3>
             <p>
-              Production-ready REST API for high-volume Lorem Ipsum generation. Scalable, reliable, and built for enterprise applications.
+              Production-ready REST API for high-volume Lorem Ipsum generation. Scalable, reliable, and built for enterprise applications. Needs a free API key — no credit card.
             </p>
             <div class="api-features">
               <span class="badge">99.9% Uptime</span>
               <span class="badge">Global CDN</span>
               <span class="badge">Rate Limiting</span>
             </div>
-            <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="button button-primary">
-              View API Docs →
+            <a href="https://requiems.xyz/users/sign_up" target="_blank" rel="noopener noreferrer" class="button button-primary">
+              Get Your Free API Key →
             </a>
-            <pre class="code-example"><code>curl https://requiems.xyz/v1/text/lorem</code></pre>
+            <TerminalCommand command={`curl "https://api.requiems.xyz/v1/text/lorem?paragraphs=3" -H "requiems-api-key: YOUR_API_KEY"`} />
           </div>
         </div>
 
@@ -702,22 +703,6 @@ import AdContainer from '../components/layout/AdContainer.astro';
     margin-bottom: 1.5rem;
     font-size: 1.0625rem;
     padding: 1rem;
-  }
-
-  .code-example {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 1.25rem;
-    margin: 0;
-    font-family: var(--font-mono);
-    overflow-x: auto;
-  }
-
-  .code-example code {
-    font-size: 0.9375rem;
-    color: var(--accent);
-    font-weight: 500;
   }
 
   .company-plug {

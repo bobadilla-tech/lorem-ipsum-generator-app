@@ -1,0 +1,335 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AdContainer from '../components/layout/AdContainer.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free way to generate Lorem Ipsum via API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Requiems API offers a free tier (500 requests, 30 requests/minute) that includes the Lorem Ipsum endpoint, and Lorelai is a free, open-source Go library you can self-host with no request limits at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Lorelai and Requiems API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lorelai is an open-source Go library you import directly into a Go codebase — no network calls, no rate limits, MIT licensed. Requiems API is a hosted REST API you call over HTTP from any language, useful when you're not writing Go or want a managed service instead of a dependency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate Lorem Ipsum from the command line with curl?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — a single GET request to the Requiems API Lorem Ipsum endpoint returns generated text directly, no SDK or API key setup required for the free tier."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Lorem Ipsum API - Generate Placeholder Text Programmatically"
+  description="Generate Lorem Ipsum text from code instead of copy-pasting from a website. Compare the Lorelai Go library and Requiems API REST endpoint, with curl, JavaScript, and Python examples."
+  keywords={['lorem ipsum api', 'api lorem ipsum generator', 'placeholder text api', 'text generator api', 'programmatic lorem ipsum', 'random text generator for developers']}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <div class="container">
+    <article class="content-article">
+      <header class="article-header">
+        <h1 class="article-title">Lorem Ipsum <span class="text-gradient">API</span></h1>
+        <p class="article-subtitle">Generate placeholder text from code, not copy-paste</p>
+      </header>
+
+      <div class="article-content">
+        <section class="content-section">
+          <h2>Why Use an API Instead of a Website?</h2>
+          <p>
+            Copy-pasting Lorem Ipsum from a browser works fine for a one-off mockup. It breaks down the moment you
+            need placeholder text in a CI pipeline, a seed script for a test database, or a backend template that
+            renders differently on every request. An API or library call fits into that workflow; a website tab
+            doesn't.
+          </p>
+        </section>
+
+        <section class="content-section">
+          <h2>Two Ways to Generate Lorem Ipsum in Code</h2>
+
+          <div class="dev-tools-grid">
+            <div class="dev-tool-card">
+              <h4>📦 Lorelai — Go Library</h4>
+              <p>
+                Import it directly into a Go codebase. No network calls, no rate limits, MIT licensed. Best when
+                you're already writing Go and want zero external dependencies.
+              </p>
+              <pre class="code-example"><code>go get github.com/bobadilla-tech/lorelai</code></pre>
+              <a href="https://github.com/bobadilla-tech/lorelai" target="_blank" rel="noopener noreferrer" class="link-button">
+                View on GitHub →
+              </a>
+            </div>
+
+            <div class="dev-tool-card">
+              <img src="/images/requiems-api-logo.png" alt="Requiems API" class="dev-tool-logo" width="40" height="40" />
+              <h4>Requiems API — REST Endpoint</h4>
+              <p>
+                A hosted HTTP endpoint you can call from any language — no Go dependency required. Part of a larger
+                all-in-one SaaS backend covering auth, validation, and more.
+              </p>
+              <pre class="code-example"><code>curl https://requiems.xyz/v1/text/lorem</code></pre>
+              <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="link-button">
+                View API Docs →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>Calling It From Your Language</h2>
+
+          <div class="use-case">
+            <h3>JavaScript / Node.js</h3>
+            <pre class="code-example"><code>const res = await fetch('https://requiems.xyz/v1/text/lorem');
+const {'{'} text {'}'} = await res.json();</code></pre>
+          </div>
+
+          <div class="use-case">
+            <h3>Python</h3>
+            <pre class="code-example"><code>import requests
+text = requests.get("https://requiems.xyz/v1/text/lorem").json()["text"]</code></pre>
+          </div>
+
+          <div class="use-case">
+            <h3>Go (via Lorelai, no network call)</h3>
+            <pre class="code-example"><code>import "github.com/bobadilla-tech/lorelai"
+
+text := lorelai.Generate(lorelai.Options{'{'}Paragraphs: 3{'}'})</code></pre>
+          </div>
+        </section>
+
+        <AdContainer
+          adSlot="7788990011"
+          adFormat="rectangle"
+          className="ad-content"
+        />
+
+        <section class="content-section">
+          <h2>Common Use Cases</h2>
+          <div class="use-case-grid">
+            <div class="use-case-card">
+              <h4>Seeding a Test Database</h4>
+              <p>Fill rows with realistic placeholder text instead of hardcoded strings.</p>
+            </div>
+            <div class="use-case-card">
+              <h4>CI/CD Test Fixtures</h4>
+              <p>Generate fresh placeholder content on every pipeline run.</p>
+            </div>
+            <div class="use-case-card">
+              <h4>Backend Template Rendering</h4>
+              <p>Render placeholder copy server-side before real content exists.</p>
+            </div>
+            <div class="use-case-card">
+              <h4>Load & Demo Data</h4>
+              <p>Populate a staging environment without writing content by hand.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section cta-section">
+          <h2>Don't Need Code? Use the Generator</h2>
+          <p>
+            For one-off mockups, our free web generator is still the fastest path — no API key, no setup.
+          </p>
+          <a href="/" class="button button-primary">Generate Lorem Ipsum →</a>
+        </section>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .content-article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+  }
+
+  .article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .article-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .article-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .article-content {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+  }
+
+  .content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .ad-content {
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+
+  .dev-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .dev-tool-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .dev-tool-logo {
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+  }
+
+  .dev-tool-card h4 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .dev-tool-card p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .use-case {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--accent);
+  }
+
+  .use-case h3 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+
+  .code-example {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    margin: 0 0 1.5rem;
+    font-family: var(--font-mono);
+    overflow-x: auto;
+  }
+
+  .code-example code {
+    font-size: 0.9375rem;
+    color: var(--accent);
+  }
+
+  .use-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .use-case-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .use-case-card h4 {
+    margin-bottom: 0.75rem;
+    color: var(--accent);
+  }
+
+  .use-case-card p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .link-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: background var(--transition-fast);
+  }
+
+  .link-button:hover {
+    background: var(--accent-hover);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    margin-top: 4rem;
+  }
+
+  .cta-section h2 {
+    margin-top: 0;
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 2rem;
+    }
+
+    .article-subtitle {
+      font-size: 1rem;
+    }
+
+    .dev-tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .use-case-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

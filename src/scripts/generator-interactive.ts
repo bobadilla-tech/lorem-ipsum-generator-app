@@ -1,4 +1,19 @@
-import { loremGenerator, type GeneratorOptions } from '../lib/lorem-generator';
+import { loremGenerator, themedGenerators, type GeneratorOptions, type IpsumTheme } from '../lib/lorem-generator';
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+/**
+ * Sends an analytics event if GA4 is loaded (no-op otherwise, e.g. ad blockers)
+ */
+function trackEvent(name: string, params?: Record<string, unknown>) {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', name, params);
+  }
+}
 
 // Wait for DOM to be ready
 if (typeof window !== 'undefined') {
@@ -21,6 +36,7 @@ function initializeGenerator() {
   const countInput = document.getElementById('count') as HTMLInputElement;
   const unitSelect = document.getElementById('unit') as HTMLSelectElement;
   const formatSelect = document.getElementById('format') as HTMLSelectElement;
+  const themeSelect = document.getElementById('theme') as HTMLSelectElement;
   const startLoremCheckbox = document.getElementById('start-lorem') as HTMLInputElement;
 
   // Preset buttons
@@ -42,13 +58,16 @@ function initializeGenerator() {
       format: formatSelect.value as 'plain' | 'html' | 'markdown'
     };
 
+    const theme = (themeSelect?.value || 'classic') as IpsumTheme;
+    const generator = themedGenerators[theme] ?? loremGenerator;
+
     // Show loading state
     outputEl.classList.add('loading');
 
     // Simulate slight delay for better UX (allows loading animation to show)
     setTimeout(() => {
       try {
-        const generatedText = loremGenerator.generate(options);
+        const generatedText = generator.generate(options);
 
         // Update output based on format
         if (options.format === 'html') {
@@ -109,6 +128,12 @@ function initializeGenerator() {
       }
 
       await navigator.clipboard.writeText(text);
+
+      trackEvent('copy_click', {
+        unit: unitSelect.value,
+        theme: themeSelect?.value || 'classic',
+        format: formatSelect.value
+      });
 
       // Show success feedback
       copyButton.classList.add('success');
@@ -190,16 +215,17 @@ function initializeGenerator() {
   function updateUIForUnit() {
     const unit = unitSelect.value;
     const checkboxGroup = document.querySelector('.checkbox-group') as HTMLElement;
+    const themeGroup = document.getElementById('theme-group');
 
-    // Hide "Start with Lorem Ipsum" for non-text generators
-    if (unit === 'emails' || unit === 'urls' || unit === 'domains') {
-      if (checkboxGroup) {
-        checkboxGroup.style.display = 'none';
-      }
-    } else {
-      if (checkboxGroup) {
-        checkboxGroup.style.display = 'flex';
-      }
+    // Hide "Start with classic opening" and "Style" for non-text generators
+    const isTextUnit = unit !== 'emails' && unit !== 'urls' && unit !== 'domains';
+
+    if (checkboxGroup) {
+      checkboxGroup.style.display = isTextUnit ? 'flex' : 'none';
+    }
+
+    if (themeGroup) {
+      themeGroup.style.display = isTextUnit ? 'flex' : 'none';
     }
   }
 

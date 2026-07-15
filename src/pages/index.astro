@@ -8,7 +8,7 @@ import AdContainer from '../components/layout/AdContainer.astro';
 <BaseLayout
   title="Lorem Ipsum Generator - Free Placeholder Text, Email, URL & Domain Generator"
   description="Generate Lorem Ipsum text, random email addresses, URLs, and domain names instantly. Fast, modern, and completely free. Perfect for designers, developers, and testing."
-  keywords={['lorem ipsum generator', 'placeholder text', 'dummy text generator', 'email generator', 'random email generator', 'url generator', 'domain name generator', 'fake email', 'test data generator', 'lorem ipsum']}
+  keywords={['lorem ipsum generator', 'placeholder text', 'dummy text generator', 'email generator', 'random email generator', 'url generator', 'domain name generator', 'fake email', 'test data generator', 'lorem ipsum', 'lorem ipsum generator for website', 'placeholder text generator for UI', 'api lorem ipsum generator', 'random text generator for developers', 'fake data generator']}
 >
   <div class="container">
     <!-- Hero Section with Generator -->
@@ -180,13 +180,13 @@ import AdContainer from '../components/layout/AdContainer.astro';
         <div class="feature-card glass-card">
           <div class="feature-icon">📝</div>
           <h3>Lorem Ipsum Text</h3>
-          <p>Generate classic placeholder text by paragraphs, sentences, or words. Perfect for mockups.</p>
+          <p>Generate classic placeholder text by paragraphs, sentences, or words — a dummy text generator built for website mockups and UI design.</p>
         </div>
 
         <div class="feature-card glass-card highlight-card">
           <div class="feature-icon">📧</div>
           <h3>Random Emails</h3>
-          <p>Generate fake email addresses for testing forms, databases, and user interfaces.</p>
+          <p>A fake data generator for developers testing forms, seeding a database, or validating user interfaces.</p>
         </div>
 
         <div class="feature-card glass-card highlight-card">
@@ -257,6 +257,26 @@ import AdContainer from '../components/layout/AdContainer.astro';
           <h3>🔄 Alternatives</h3>
           <p>Explore other placeholder text generators and dummy content tools.</p>
         </a>
+
+        <a href="/lorem-ipsum-api" class="link-card glass-card">
+          <h3>🔌 Lorem Ipsum API</h3>
+          <p>Generate placeholder text from code — curl, JavaScript, Python, and Go examples.</p>
+        </a>
+
+        <a href="/dummy-text-generator-ui" class="link-card glass-card">
+          <h3>🖥️ Dummy Text for UI Design</h3>
+          <p>Size placeholder text to real components instead of generic paragraphs.</p>
+        </a>
+
+        <a href="/placeholder-text-figma" class="link-card glass-card">
+          <h3>🎨 Placeholder Text for Figma</h3>
+          <p>Copy-paste workflow for dropping Lorem Ipsum straight into Figma text layers.</p>
+        </a>
+
+        <a href="/lorem-ipsum-for" class="link-card glass-card">
+          <h3>🎯 Lorem Ipsum by Use Case</h3>
+          <p>Sizing and tips for landing pages, dashboards, emails, and a dozen other contexts.</p>
+        </a>
       </div>
     </section>
 
@@ -265,7 +285,8 @@ import AdContainer from '../components/layout/AdContainer.astro';
       <div class="api-container glass-card">
         <h2 class="section-title text-center">For Developers</h2>
         <p class="api-intro text-center">
-          Need Lorem Ipsum in your application? We've got you covered with both open-source and enterprise solutions.
+          Need an API lorem ipsum generator for your application, not just a website form? We've got you covered with
+          both open-source and enterprise solutions.
         </p>
 
         <div class="api-grid">
@@ -288,6 +309,7 @@ import AdContainer from '../components/layout/AdContainer.astro';
 
           <div class="api-card">
             <img src="/images/requiems-api-logo.png" alt="Requiems API" class="api-logo" width="56" height="56" />
+            <p class="api-eyebrow">Need dynamic text via API?</p>
             <h3>Enterprise API</h3>
             <p>
               Production-ready REST API for high-volume Lorem Ipsum generation. Scalable, reliable, and built for enterprise applications.
@@ -306,6 +328,7 @@ import AdContainer from '../components/layout/AdContainer.astro';
 
         <div class="company-plug">
           <img src="/images/bobadilla-tech-logo.png" alt="Bobadilla Tech" class="company-logo" width="48" height="48" />
+          <p class="api-eyebrow">Building a website or product?</p>
           <p>
             Built by <a href="https://bobadilla.tech/" target="_blank" rel="noopener noreferrer" class="company-link"><strong>Bobadilla Tech</strong></a>
             — a LATAM engineering agency that ships MVPs, backend systems, and developer tools like this one.
@@ -631,6 +654,15 @@ import AdContainer from '../components/layout/AdContainer.astro';
     margin-bottom: 1.5rem;
     border-radius: var(--radius-lg);
     object-fit: cover;
+  }
+
+  .api-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.5rem !important;
   }
 
   .api-card h3 {

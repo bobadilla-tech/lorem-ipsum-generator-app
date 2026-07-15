@@ -42,3 +42,59 @@ export const CLASSIC_OPENING: string[] = [
 
 // Full classic Lorem Ipsum paragraph from the 1500s
 export const CLASSIC_LOREM_IPSUM = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+
+// Pirate-themed word corpus
+export const PIRATE_WORDS: string[] = [
+  'arr', 'matey', 'ahoy', 'shiver', 'timbers', 'plunder', 'treasure', 'doubloon',
+  'scallywag', 'landlubber', 'buccaneer', 'galleon', 'cutlass', 'parrot', 'rum',
+  'kraken', 'blimey', 'avast', 'jolly', 'roger', 'cannon', 'plank', 'hearty',
+  'booty', 'gold', 'chest', 'island', 'compass', 'sail', 'anchor', 'captain',
+  'mate', 'crew', 'mutiny', 'seas', 'storm', 'wave', 'port', 'starboard', 'aft',
+  'bow', 'rigging', 'mast', 'deck', 'hull', 'flag', 'skull', 'crossbones', 'coin',
+  'map', 'grog', 'tavern', 'harbor', 'voyage', 'pillage', 'seadog', 'bilge',
+  'keelhaul', 'marooned', 'spyglass', 'cove', 'lagoon', 'brig', 'musket',
+  'fortune', 'legend', 'siren', 'mermaid', 'whale', 'current', 'tide', 'horizon',
+  'adventure', 'quest', 'loot', 'riches', 'cargo', 'hold', 'deckhand',
+  'navigator', 'helm', 'wheel', 'wench', 'grog', 'sword', 'dagger', 'gunpowder'
+];
+
+export const PIRATE_OPENING: string[] = ['Arr', 'matey', 'shiver', 'me', 'timbers'];
+
+// Tech-themed word corpus
+export const TECH_WORDS: string[] = [
+  'deploy', 'scale', 'iterate', 'ship', 'refactor', 'pipeline', 'container',
+  'kubernetes', 'microservice', 'api', 'endpoint', 'latency', 'cache', 'async',
+  'sync', 'backend', 'frontend', 'fullstack', 'database', 'query', 'index',
+  'schema', 'migration', 'framework', 'library', 'dependency', 'package',
+  'module', 'component', 'hook', 'state', 'render', 'compile', 'build',
+  'bundle', 'minify', 'lint', 'test', 'debug', 'production', 'staging',
+  'environment', 'variable', 'config', 'server', 'client', 'request',
+  'response', 'payload', 'token', 'auth', 'encrypt', 'hash', 'key', 'cloud',
+  'serverless', 'edge', 'cdn', 'dns', 'webhook', 'event', 'queue', 'worker',
+  'thread', 'process', 'memory', 'byte', 'node', 'repo', 'commit', 'branch',
+  'merge', 'review', 'artifact', 'registry', 'image', 'cluster', 'pod',
+  'monitor', 'log', 'metric', 'alert', 'uptime', 'downtime', 'throughput',
+  'bandwidth', 'protocol'
+];
+
+export const TECH_OPENING: string[] = ['Deploy', 'scale', 'iterate', 'ship', 'fast'];
+
+// Startup-themed word corpus
+export const STARTUP_WORDS: string[] = [
+  'disrupt', 'synergy', 'pivot', 'scale', 'growth', 'hustle', 'hack', 'iterate',
+  'mvp', 'runway', 'burnrate', 'valuation', 'funding', 'seed', 'series',
+  'equity', 'captable', 'founder', 'cofounder', 'unicorn', 'traction', 'metric',
+  'kpi', 'northstar', 'productmarketfit', 'acquisition', 'churn', 'retention',
+  'engagement', 'onboarding', 'conversion', 'funnel', 'cohort', 'stakeholder',
+  'deck', 'pitch', 'investor', 'venture', 'capital', 'bootstrap', 'lean',
+  'agile', 'sprint', 'standup', 'roadmap', 'milestone', 'okr', 'moat', 'tam',
+  'sam', 'som', 'advantage', 'firstmover', 'networkeffect', 'viral', 'flywheel',
+  'ecosystem', 'platform', 'marketplace', 'saas', 'b2b', 'b2c', 'monetize',
+  'revenue', 'arr', 'mrr', 'ltv', 'cac', 'exit', 'ipo', 'acquisition', 'merger',
+  'termsheet', 'duediligence', 'board', 'advisor', 'mentor', 'accelerator',
+  'incubator', 'demoday', 'pitch', 'proposition', 'differentiation',
+  'disruption', 'innovation', 'paradigmshift', 'thoughtleader', 'evangelist',
+  'ninja', 'rockstar', 'guru'
+];
+
+export const STARTUP_OPENING: string[] = ['Disrupt', 'the', 'market', 'and', 'scale'];

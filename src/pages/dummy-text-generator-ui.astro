@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AdContainer from '../components/layout/AdContainer.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much placeholder text should I use in a UI mockup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Match the length to what the real content will realistically be. A button label shouldn't get a full sentence, and a blog preview shouldn't get one word — mismatched lengths hide real layout problems instead of exposing them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should placeholder text be different lengths in different places?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Testing both a very short and a very long variant of the same field reveals how your UI handles truncation, wrapping, and overflow before real content ever exists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does dummy text in a UI mockup affect accessibility testing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partially. Placeholder text is fine for layout and visual review, but screen reader and reading-level testing should always happen with real copy before launch."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Dummy Text Generator for UI Design - Mockups & Prototypes"
+  description="Generate dummy text sized for real UI components — buttons, cards, feeds, and forms — instead of generic paragraphs that hide layout bugs."
+  keywords={['dummy text generator for ui', 'placeholder text generator for ui', 'lorem ipsum for ui design', 'dummy text generator paragraphs', 'text generator for testing database']}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <div class="container">
+    <article class="content-article">
+      <header class="article-header">
+        <h1 class="article-title">Dummy Text Generator for <span class="text-gradient">UI Design</span></h1>
+        <p class="article-subtitle">Placeholder text sized for real components, not generic paragraphs</p>
+      </header>
+
+      <div class="article-content">
+        <section class="content-section">
+          <p>
+            Most placeholder text gets dropped into a mockup at whatever length is convenient — usually a full
+            paragraph, regardless of whether the component is a button, a card title, or a comment feed. That hides
+            exactly the layout bugs you need to catch before launch.
+          </p>
+        </section>
+
+        <section class="content-section">
+          <h2>Match Text Length to the Component</h2>
+
+          <div class="use-case">
+            <h3>Buttons & Labels</h3>
+            <p>Use 1-3 words, not a sentence. A button that only looks right with "Submit" will break with "Complete Your Registration Now".</p>
+          </div>
+
+          <div class="use-case">
+            <h3>Card Titles & Headlines</h3>
+            <p>Generate at word or short-sentence length — test both a 3-word title and a 12-word title in the same card to catch wrapping issues.</p>
+          </div>
+
+          <div class="use-case">
+            <h3>Feed Items & Comments</h3>
+            <p>Use variable sentence counts across items. A feed where every item is exactly two sentences looks fine — until real content varies wildly.</p>
+          </div>
+
+          <div class="use-case">
+            <h3>Forms & Data Tables</h3>
+            <p>Use word-level generation, or the email/URL/domain generators, so form fields and table columns are exercised the way they'll actually be filled.</p>
+          </div>
+        </section>
+
+        <AdContainer
+          adSlot="8899001122"
+          adFormat="rectangle"
+          className="ad-content"
+        />
+
+        <section class="content-section">
+          <h2>Testing Edge Cases</h2>
+          <div class="use-case-grid">
+            <div class="use-case-card">
+              <h4>Shortest Realistic Case</h4>
+              <p>What does the layout do with the minimum viable content length?</p>
+            </div>
+            <div class="use-case-card">
+              <h4>Longest Realistic Case</h4>
+              <p>Does text truncate, wrap, or break the container at the upper bound?</p>
+            </div>
+            <div class="use-case-card">
+              <h4>Empty State</h4>
+              <p>Placeholder text can't replace testing what the UI looks like with nothing in it.</p>
+            </div>
+            <div class="use-case-card">
+              <h4>Bulk / Repeated Content</h4>
+              <p>Generate 10-20 items at once to see how a list or grid holds up at scale.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>Generating It Programmatically</h2>
+          <p>
+            Prototyping in code instead of a design tool? The same word/sentence/paragraph controls are available
+            as a REST endpoint — see our <a href="/lorem-ipsum-api">Lorem Ipsum API guide</a> for curl, JavaScript,
+            and Python examples.
+          </p>
+        </section>
+
+        <section class="content-section cta-section">
+          <h2>Generate Text Sized for Your UI</h2>
+          <p>
+            Switch between words, sentences, and paragraphs to match whatever component you're mocking up.
+          </p>
+          <a href="/" class="button button-primary">Generate Lorem Ipsum →</a>
+        </section>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .content-article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+  }
+
+  .article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .article-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .article-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .article-content {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+  }
+
+  .content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .ad-content {
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+
+  .use-case {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--accent);
+  }
+
+  .use-case h3 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+
+  .use-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .use-case-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .use-case-card h4 {
+    margin-bottom: 0.75rem;
+    color: var(--accent);
+  }
+
+  .use-case-card p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    margin-top: 4rem;
+  }
+
+  .cta-section h2 {
+    margin-top: 0;
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 2rem;
+    }
+
+    .article-subtitle {
+      font-size: 1rem;
+    }
+
+    .use-case-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

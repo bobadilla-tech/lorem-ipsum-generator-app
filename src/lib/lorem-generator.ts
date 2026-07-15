@@ -1,7 +1,13 @@
-import { LOREM_WORDS, CLASSIC_OPENING } from './word-bank';
+import {
+  LOREM_WORDS, CLASSIC_OPENING,
+  PIRATE_WORDS, PIRATE_OPENING,
+  TECH_WORDS, TECH_OPENING,
+  STARTUP_WORDS, STARTUP_OPENING
+} from './word-bank';
 
 export type GeneratorUnit = 'words' | 'sentences' | 'paragraphs' | 'emails' | 'urls' | 'domains';
 export type OutputFormat = 'plain' | 'html' | 'markdown';
+export type IpsumTheme = 'classic' | 'pirate' | 'tech' | 'startup';
 
 export interface GeneratorOptions {
   count: number;
@@ -15,9 +21,11 @@ const TLDS = ['com', 'net', 'org', 'io', 'dev', 'app', 'co', 'tech', 'info', 'bi
 
 export class LoremGenerator {
   private words: string[];
+  private opening: string[];
 
-  constructor(words: string[] = LOREM_WORDS) {
+  constructor(words: string[] = LOREM_WORDS, opening: string[] = CLASSIC_OPENING) {
     this.words = words;
+    this.opening = opening;
   }
 
   /**
@@ -64,9 +72,9 @@ export class LoremGenerator {
   private generateWords(count: number, startWithLorem: boolean): string[] {
     const result: string[] = [];
 
-    if (startWithLorem && count >= CLASSIC_OPENING.length) {
-      result.push(...CLASSIC_OPENING);
-      count = count - CLASSIC_OPENING.length;
+    if (startWithLorem && count >= this.opening.length) {
+      result.push(...this.opening);
+      count = count - this.opening.length;
     }
 
     for (let i = 0; i < count; i++) {
@@ -225,3 +233,11 @@ export class LoremGenerator {
 
 // Export a default instance for convenience
 export const loremGenerator = new LoremGenerator();
+
+// Themed generator instances, keyed by theme name
+export const themedGenerators: Record<IpsumTheme, LoremGenerator> = {
+  classic: loremGenerator,
+  pirate: new LoremGenerator(PIRATE_WORDS, PIRATE_OPENING),
+  tech: new LoremGenerator(TECH_WORDS, TECH_OPENING),
+  startup: new LoremGenerator(STARTUP_WORDS, STARTUP_OPENING)
+};

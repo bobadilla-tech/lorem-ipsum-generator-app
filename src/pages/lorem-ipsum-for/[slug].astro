@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdContainer from '../../components/layout/AdContainer.astro';
+import { USE_CASES } from '../../lib/use-cases';
+
+export function getStaticPaths() {
+  return USE_CASES.map((useCase) => ({
+    params: { slug: useCase.slug },
+    props: { useCase }
+  }));
+}
+
+const { useCase } = Astro.props;
+const otherUseCases = USE_CASES.filter((u) => u.slug !== useCase.slug);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": useCase.faqQuestion,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": useCase.faqAnswer
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={`Lorem Ipsum for ${useCase.label} - Placeholder Text Generator`}
+  description={`${useCase.intro} Generate free Lorem Ipsum sized for ${useCase.label.toLowerCase()}.`}
+  keywords={[`lorem ipsum for ${useCase.label.toLowerCase()}`, 'lorem ipsum generator', 'placeholder text generator', useCase.label.toLowerCase()]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <div class="container">
+    <article class="content-article">
+      <header class="article-header">
+        <h1 class="article-title">Lorem Ipsum for <span class="text-gradient">{useCase.label}</span></h1>
+        <p class="article-subtitle">{useCase.intro}</p>
+      </header>
+
+      <div class="article-content">
+        <section class="content-section">
+          <h2>Tips for {useCase.label}</h2>
+          <ul class="tips-list">
+            {useCase.tips.map((tip) => <li>{tip}</li>)}
+          </ul>
+        </section>
+
+        <AdContainer
+          adSlot="1029384756"
+          adFormat="rectangle"
+          className="ad-content"
+        />
+
+        <section class="content-section cta-section">
+          <h2>Generate Lorem Ipsum for {useCase.label}</h2>
+          <p>Pick your count and format below, sized to what you're actually building.</p>
+          <a href="/" class="button button-primary">Generate Lorem Ipsum →</a>
+        </section>
+
+        <section class="content-section">
+          <h2>Other Use Cases</h2>
+          <div class="use-case-links">
+            {otherUseCases.map((u) => (
+              <a href={`/lorem-ipsum-for/${u.slug}`} class="use-case-link">{u.label}</a>
+            ))}
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .content-article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+  }
+
+  .article-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .article-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .article-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .article-content {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .content-section {
+    margin-bottom: 3rem;
+  }
+
+  .content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .ad-content {
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+
+  .tips-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-list li {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--accent);
+    color: var(--text-secondary);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    margin: 2rem 0;
+  }
+
+  .cta-section h2 {
+    margin-top: 0;
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+  }
+
+  .use-case-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .use-case-link {
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: all var(--transition-fast);
+  }
+
+  .use-case-link:hover {
+    background: var(--bg-glass);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 2rem;
+    }
+
+    .article-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>

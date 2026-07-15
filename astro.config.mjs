@@ -22,9 +22,19 @@ export default defineConfig({
           item.priority = 0.8;
         }
         // Other pages
-        else if (item.url.includes('/alternatives')) {
+        else if (
+          item.url.includes('/alternatives') ||
+          item.url.includes('/lorem-ipsum-api') ||
+          item.url.includes('/dummy-text-generator-ui') ||
+          item.url.includes('/placeholder-text-figma')
+        ) {
           item.changefreq = 'monthly';
           item.priority = 0.6;
+        }
+        // Programmatic use-case pages (lower priority, larger set)
+        else if (item.url.includes('/lorem-ipsum-for/')) {
+          item.changefreq = 'monthly';
+          item.priority = 0.5;
         }
         // Legal/static pages
         else if (item.url.includes('/privacy') || item.url.includes('/terms') || item.url.includes('/contact')) {

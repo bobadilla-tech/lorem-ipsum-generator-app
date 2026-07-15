@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AdContainer from '../components/layout/AdContainer.astro';
 ---
 
 <BaseLayout
@@ -94,6 +95,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </section>
 
+        <AdContainer
+          adSlot="3344556677"
+          adFormat="rectangle"
+          className="ad-content"
+        />
+
         <section class="content-section">
           <h2>Modern Adoption</h2>
           <p>
@@ -174,6 +181,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             and 100% free.
           </p>
           <a href="/" class="button button-primary">Generate Lorem Ipsum →</a>
+          <p class="built-by">
+            Built by <a href="https://bobadilla.tech/" target="_blank" rel="noopener noreferrer">Bobadilla Tech</a>
+            — engineers who build fast, reliable developer tools.
+          </p>
         </section>
       </div>
     </article>
@@ -223,6 +234,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .content-section p {
     margin-bottom: 1.5rem;
+  }
+
+  .ad-content {
+    margin: 3rem auto;
+    max-width: 600px;
   }
 
   .info-box {
@@ -366,6 +382,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .cta-section p {
     margin-bottom: 2rem;
+  }
+
+  .built-by {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .built-by a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .built-by a:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 768px) {

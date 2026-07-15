@@ -333,7 +333,7 @@ pnpm dev
 
 - **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Lorem Ipsum
   generator library for Go
-- **[Requiems API](https://requiems-api.xyz)** - Enterprise API solutions by
+- **[Requiems API](https://requiems.xyz)** - Enterprise API solutions by
   Bobadilla Tech
 
 ---

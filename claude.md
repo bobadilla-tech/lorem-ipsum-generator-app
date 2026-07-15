@@ -204,7 +204,7 @@ pnpm build
 - **Footer**: Company branding with links
 - **"For Developers" Section**:
   - [Lorelai](https://github.com/bobadilla-tech/lorelai) - Go library
-  - [Requiems API](https://requiems-api.xyz) - Enterprise API
+  - [Requiems API](https://requiems.xyz) - Enterprise API
   - Social links: GitHub, LinkedIn, Website
 - **Contact Page**: Full company info
 
@@ -343,7 +343,7 @@ git push                # Push to GitHub (triggers Cloudflare deploy)
 
 - **Lorelai**: https://github.com/bobadilla-tech/lorelai (Go library
   inspiration)
-- **Requiems API**: https://requiems-api.xyz (Enterprise API by Bobadilla Tech)
+- **Requiems API**: https://requiems.xyz (Enterprise API by Bobadilla Tech)
 - **Bobadilla Tech**: https://bobadilla.tech (Company website)
 
 ---

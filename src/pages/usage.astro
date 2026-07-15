@@ -1,5 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AdContainer from '../components/layout/AdContainer.astro';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why use Lorem Ipsum instead of real content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lorem Ipsum lets designers and developers evaluate a layout without being distracted by readable content, so stakeholders focus on visual design rather than copy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I replace Lorem Ipsum before launching my site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Always replace Lorem Ipsum with real content before going live, and search your codebase for \"lorem\" to catch any missed instances."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Lorem Ipsum hurt SEO if it's left on a live page?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Never launch with Lorem Ipsum in meta descriptions, titles, or H1 tags, since it hurts search rankings by replacing meaningful, indexable content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I generate Lorem Ipsum in HTML or Markdown format?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our generator outputs Plain Text, HTML, or Markdown so it drops directly into your workflow, whether that's a CMS, a static site, or code."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout
@@ -7,6 +47,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Learn how designers and developers use Lorem Ipsum placeholder text effectively. Best practices, common use cases, and tips for maximum efficiency."
   keywords={['lorem ipsum usage', 'placeholder text guide', 'dummy text best practices', 'design mockups']}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <div class="container">
     <article class="content-article">
       <header class="article-header">
@@ -165,6 +206,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </section>
 
+        <AdContainer
+          adSlot="6677889900"
+          adFormat="rectangle"
+          className="ad-content"
+        />
+
         <section class="content-section">
           <h2>What NOT to Do</h2>
 
@@ -177,6 +224,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <li><strong>Don't copy-paste repeatedly</strong> - Use a generator for variety and natural text flow</li>
               <li><strong>Don't use in production databases</strong> - Clean up test data before launch</li>
             </ul>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>Need This in Your Own App?</h2>
+          <p>
+            If you're generating placeholder text programmatically instead of by hand, skip the copy-paste and use it
+            directly in code.
+          </p>
+
+          <div class="dev-tools-grid">
+            <div class="dev-tool-card">
+              <h4>📦 Lorelai Go Library</h4>
+              <p>Open source Lorem Ipsum generator for Go applications</p>
+              <a href="https://github.com/bobadilla-tech/lorelai" target="_blank" rel="noopener noreferrer" class="link-button">
+                View on GitHub →
+              </a>
+            </div>
+
+            <div class="dev-tool-card">
+              <h4>🚀 Requiems API</h4>
+              <p>Lorem Ipsum generation as one endpoint in an all-in-one SaaS backend</p>
+              <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="link-button">
+                View API Docs →
+              </a>
+            </div>
           </div>
         </section>
 
@@ -232,6 +305,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 2rem;
     margin-bottom: 1.5rem;
     margin-top: 2rem;
+  }
+
+  .ad-content {
+    margin: 3rem auto;
+    max-width: 600px;
   }
 
   .benefit-grid {
@@ -365,6 +443,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .warning-box li {
     margin-bottom: 0.75rem;
+  }
+
+  .dev-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .dev-tool-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .dev-tool-card h4 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .dev-tool-card p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .link-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: background var(--transition-fast);
+  }
+
+  .link-button:hover {
+    background: var(--accent-hover);
   }
 
   .cta-section {

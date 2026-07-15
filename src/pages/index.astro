@@ -297,10 +297,10 @@ import AdContainer from '../components/layout/AdContainer.astro';
               <span class="badge">Global CDN</span>
               <span class="badge">Rate Limiting</span>
             </div>
-            <a href="https://requiems-api.xyz/" target="_blank" rel="noopener noreferrer" class="button button-primary">
+            <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="button button-primary">
               View API Docs →
             </a>
-            <pre class="code-example"><code>curl https://requiems-api.xyz/lorem</code></pre>
+            <pre class="code-example"><code>curl https://requiems.xyz/v1/text/lorem</code></pre>
           </div>
         </div>
 
@@ -337,6 +337,37 @@ import AdContainer from '../components/layout/AdContainer.astro';
 <style>
   .hero-section {
     padding: 2rem 0;
+    position: relative;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: -15% -10% auto -10%;
+    height: 140%;
+    background:
+      radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 45%),
+      radial-gradient(circle at 80% 25%, rgba(139, 92, 246, 0.14), transparent 45%),
+      radial-gradient(circle at 50% 85%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 50%);
+    filter: blur(50px);
+    z-index: -1;
+    animation: hero-drift 18s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes hero-drift {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(2%, -2%) scale(1.05);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-section::before {
+      animation: none;
+    }
   }
 
   .feature-highlight {

@@ -1,5 +1,0 @@
-{
-  "permissions": {
-    "allow": ["Bash(python3 -c ' *)", "Bash(pnpm remove *)", "Bash(git mv *)"]
-  }
-}

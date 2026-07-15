@@ -138,16 +138,3 @@ light/dark/mobile, DOM assertions for ad slots/links/schema, and functional
 checks (theme switching produces correctly-themed text, copy buttons actually
 copy, tracking event fires with correct params, Mac vs non-Mac shortcut
 display).
-
-## Files touched (non-exhaustive, high-traffic ones)
-
-- `src/components/layout/{Footer,AdContainer,AdMobileAnchor,BaseHead}.astro`
-- `src/components/{CodeBlock,TerminalCommand}.astro` (new)
-- `src/components/generator/{GeneratorControls,OutputDisplay}.astro`
-- `src/lib/{lorem-generator,word-bank,use-cases}.ts`
-- `src/scripts/generator-interactive.ts`
-- `src/pages/{index,history,usage,alternatives,contact}.astro`
-- `src/pages/{lorem-ipsum-api,dummy-text-generator-ui,placeholder-text-figma}.astro`
-  (new)
-- `src/pages/lorem-ipsum-for/{index,[slug]}.astro` (new)
-- `astro.config.mjs`, `public/images/*`, `README.md`, `CLAUDE.md`

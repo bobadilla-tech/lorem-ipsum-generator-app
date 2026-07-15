@@ -33,7 +33,9 @@ function updateShortcutHintsForMac() {
 
   ["shortcut-generate", "shortcut-copy"].forEach((id) => {
     const el = document.getElementById(id);
-    if (el) el.textContent = el.textContent?.replace("Ctrl", "⌘") ?? el.textContent;
+    if (el) {
+      el.textContent = el.textContent?.replace("Ctrl", "⌘") ?? el.textContent;
+    }
   });
 }
 

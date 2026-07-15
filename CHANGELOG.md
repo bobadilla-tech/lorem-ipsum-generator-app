@@ -3,6 +3,7 @@
 ## [1.0.0] - 2026-01-30
 
 ### Added
+
 - ✅ Complete Lorem Ipsum generator with Gaussian distribution algorithm
 - ✅ Modern glassmorphism UI with improved light mode
 - ✅ Dark mode with system preference detection
@@ -15,6 +16,7 @@
 - ✅ Comprehensive SEO (meta tags, structured data, sitemap)
 
 ### Pages Created
+
 - ✅ **Homepage** (`/`) - Generator with educational content
 - ✅ **History** (`/history`) - 2000-year history of Lorem Ipsum
 - ✅ **Usage Guide** (`/usage`) - Best practices for designers
@@ -24,6 +26,7 @@
 - ✅ **Contact** (`/contact`) - Contact information and developer links
 
 ### Bobadilla Tech Integration
+
 - ✅ Company branding in footer with links
 - ✅ "For Developers" section with improved styling
 - ✅ Lorelai Go library promotion
@@ -31,6 +34,7 @@
 - ✅ Social media links (GitHub, LinkedIn, Website)
 
 ### Improvements
+
 - ✅ Enhanced light mode styling with better contrast
 - ✅ Improved "For Developers" section with:
   - Better card design with hover effects
@@ -44,6 +48,7 @@
 - ✅ Better color contrast for accessibility
 
 ### Technical
+
 - Built with Astro 5.x
 - TypeScript strict mode
 - pnpm package manager
@@ -54,6 +59,7 @@
 ## What's Next
 
 ### Phase 2 (Optional)
+
 - [ ] Google Analytics 4 integration
 - [ ] Additional generator features (emails, URLs, domains)
 - [ ] API endpoint for programmatic access
@@ -62,6 +68,7 @@
 - [ ] Blog section
 
 ### Future Enhancements
+
 - [ ] User accounts and preferences
 - [ ] Custom word lists
 - [ ] Export to PDF

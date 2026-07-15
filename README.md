@@ -1,10 +1,13 @@
 # Lorem Ipsum Generator 🎨
 
-A modern, blazing-fast Lorem Ipsum generator with email, URL, and domain generation capabilities. Built with Astro 5, featuring glassmorphism design, dark mode, and exceptional SEO. Optimized for Google Ads revenue.
+A modern, blazing-fast Lorem Ipsum generator with email, URL, and domain
+generation capabilities. Built with Astro 5, featuring glassmorphism design,
+dark mode, and exceptional SEO. Optimized for Google Ads revenue.
 
 ![Lorem Ipsum Generator](https://lorem-ipsum.bobadilla.tech/images/og-image.png)
 
-🔗 **Live Demo**: [lorem-ipsum.bobadilla.tech](https://lorem-ipsum.bobadilla.tech)
+🔗 **Live Demo**:
+[lorem-ipsum.bobadilla.tech](https://lorem-ipsum.bobadilla.tech)
 
 ## ✨ Features
 
@@ -16,7 +19,8 @@ A modern, blazing-fast Lorem Ipsum generator with email, URL, and domain generat
 - **🔍 SEO-Friendly** - Comprehensive meta tags, structured data, and sitemap
 - **⌨️ Keyboard Shortcuts** - Ctrl+G to generate, Ctrl+K to copy
 - **📝 Multiple Formats** - Export as plain text, HTML, or Markdown
-- **📧 Multiple Generators** - Lorem Ipsum text, email addresses, URLs, and domain names
+- **📧 Multiple Generators** - Lorem Ipsum text, email addresses, URLs, and
+  domain names
 - **🚀 Zero JS by default** - Astro Islands architecture for optimal performance
 
 ## 🚀 Quick Start
@@ -84,15 +88,21 @@ lorem-ipsum/
 The generator supports multiple types of placeholder content:
 
 ### Lorem Ipsum Text
+
 Uses Gaussian distribution to create natural-looking text:
+
 - **Sentences**: Average 15 words (±5 words standard deviation)
 - **Paragraphs**: Average 5 sentences (±2 sentences standard deviation)
-- **Word Bank**: 180+ classical Latin words from Cicero's "De finibus bonorum et malorum" (45 BC)
+- **Word Bank**: 180+ classical Latin words from Cicero's "De finibus bonorum et
+  malorum" (45 BC)
 
 ### Random Data Generation
-- **Email Addresses**: Generates realistic fake email addresses with common providers
+
+- **Email Addresses**: Generates realistic fake email addresses with common
+  providers
 - **URLs**: Creates random URLs with realistic paths and TLDs
-- **Domain Names**: Generates random domain names with various TLDs (.com, .net, .org, .io, etc.)
+- **Domain Names**: Generates random domain names with various TLDs (.com, .net,
+  .org, .io, etc.)
 
 ```typescript
 // Generate 5 paragraphs with Lorem Ipsum opening
@@ -152,7 +162,8 @@ The site includes comprehensive SEO optimization:
 
 ### Domain Configuration
 
-The site is configured for `https://lorem-ipsum.bobadilla.tech` in `astro.config.mjs`:
+The site is configured for `https://lorem-ipsum.bobadilla.tech` in
+`astro.config.mjs`:
 
 ```javascript
 export default defineConfig({
@@ -186,7 +197,8 @@ Edit CSS variables in `src/styles/global.css`:
 ### Content
 
 - **Homepage**: `src/pages/index.astro`
-- **Educational Pages**: `src/pages/history.astro`, `usage.astro`, `alternatives.astro`
+- **Educational Pages**: `src/pages/history.astro`, `usage.astro`,
+  `alternatives.astro`
 - **Generator Logic**: `src/lib/lorem-generator.ts`
 
 ### Add More Words
@@ -314,13 +326,17 @@ pnpm dev
 
 - **Cicero** - For "De finibus bonorum et malorum" (45 BC)
 - **Astro Team** - For the amazing static site generator
-- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Bobadilla Tech's Go library for Lorem Ipsum generation (inspiration for this project)
+- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Bobadilla Tech's Go
+  library for Lorem Ipsum generation (inspiration for this project)
 
 ## 🔗 Related Projects
 
-- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Lorem Ipsum generator library for Go
-- **[Requiems API](https://requiems-api.xyz)** - Enterprise API solutions by Bobadilla Tech
+- **[Lorelai](https://github.com/bobadilla-tech/lorelai)** - Lorem Ipsum
+  generator library for Go
+- **[Requiems API](https://requiems-api.xyz)** - Enterprise API solutions by
+  Bobadilla Tech
 
 ---
 
-Built with ❤️ by [Bobadilla Tech](https://bobadilla.tech) | [GitHub](https://github.com/bobadilla-tech) | [Website](https://bobadilla.tech)
+Built with ❤️ by [Bobadilla Tech](https://bobadilla.tech) |
+[GitHub](https://github.com/bobadilla-tech) | [Website](https://bobadilla.tech)

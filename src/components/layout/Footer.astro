@@ -1,4 +1,6 @@
 ---
+import { site } from "../../config/site";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -6,7 +8,7 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>Lorem Ipsum Generator</h3>
+        <h3>{site.name}</h3>
         <p>The best free Lorem Ipsum generator for designers and developers. Fast, modern, and ad-optimized.</p>
       </div>
 
@@ -42,9 +44,9 @@ const currentYear = new Date().getFullYear();
       <div class="footer-section">
         <h4>For Developers</h4>
         <ul class="footer-links">
-          <li><a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer">Enterprise API</a></li>
-          <li><a href="https://github.com/bobadilla-tech/lorelai" target="_blank" rel="noopener noreferrer">Lorelai (Go Library)</a></li>
-          <li><a href="https://github.com/bobadilla-tech" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href={site.related.requiemsApi} target="_blank" rel="noopener noreferrer">Enterprise API</a></li>
+          <li><a href={site.related.lorelaiRepo} target="_blank" rel="noopener noreferrer">Lorelai (Go Library)</a></li>
+          <li><a href={site.brand.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
         </ul>
       </div>
 
@@ -59,14 +61,14 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {currentYear} Lorem Ipsum Generator. All rights reserved.</p>
+      <p>&copy; {currentYear} {site.name}. All rights reserved.</p>
       <p class="footer-credit">
         Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a> by
-        <a href="https://bobadilla.tech/" target="_blank" rel="noopener noreferrer" class="brand-link">
-          <img src="/images/bobadilla-tech-logo.png" alt="Bobadilla Tech" width="18" height="18" />
-          <strong>Bobadilla Tech</strong>
+        <a href={site.brand.url} target="_blank" rel="noopener noreferrer" class="brand-link">
+          <img src={site.brand.logo} alt={site.brand.name} width="18" height="18" />
+          <strong>{site.brand.name}</strong>
         </a>
-        • <a href="https://www.linkedin.com/company/bobadillatech/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        • <a href={site.brand.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </p>
     </div>
   </div>

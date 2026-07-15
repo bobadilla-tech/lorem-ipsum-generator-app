@@ -39,6 +39,8 @@ lorem-ipsum/
 │   │   └── generator/
 │   │       ├── GeneratorControls.astro  # Input controls
 │   │       └── OutputDisplay.astro      # Generated text display
+│   ├── config/
+│   │   └── site.ts                # Brand/domain/ad IDs — edit this when cloning the template
 │   ├── layouts/
 │   │   └── BaseLayout.astro       # Main page wrapper
 │   ├── lib/
@@ -102,8 +104,8 @@ lorem-ipsum/
   2. Sticky Sidebar (300x250) - Desktop only
   3. In-Content Rectangle (300x250) - Between sections
   4. Mobile Anchor - Bottom banner (mobile only, dismissible)
-- **Configuration**: `src/components/layout/AdContainer.astro`
-  - Update `adClient` with your Publisher ID
+- **Configuration**: `src/config/site.ts`
+  - Update `adsenseClientId` with your Publisher ID
   - Update `adSlot` IDs in page files
 
 ## SEO Optimization
@@ -171,7 +173,7 @@ pnpm build
 ### GitHub Pages Deployment
 
 - **Workflow**: `.github/workflows/deploy.yml` - builds with `pnpm build`,
-  deploys `dist` via `actions/deploy-pages@v4` on every push to `main`
+  deploys `dist` via the GitHub Pages deploy action on every push to `main`
 - **Custom domain**: `public/CNAME` (`lorem-ipsum.bobadilla.tech`) - must
   stay committed, GitHub Pages reads it from the deployed artifact
 - **Node version**: pinned via `.nvmrc`, used by the workflow's
@@ -265,8 +267,8 @@ git push                # Push to GitHub (triggers GitHub Pages deploy)
    - Apply at https://adsense.google.com
 
 2. **Update AdSense IDs**
-   - Edit `src/components/layout/AdContainer.astro`
-   - Replace `ca-pub-XXXXXXXXXXXXXXXXX` with your Publisher ID
+   - Edit `src/config/site.ts`
+   - Replace `adsenseClientId` (`ca-pub-XXXXXXXXXXXXXXXXX`) with your Publisher ID
    - Update ad slot IDs in page files
 
 3. **Add ads.txt**

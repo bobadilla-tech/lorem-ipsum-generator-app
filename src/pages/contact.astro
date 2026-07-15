@@ -1,4 +1,5 @@
 ---
+import { site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -20,7 +21,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <div class="contact-icon">🏢</div>
               <h3>Bobadilla Tech</h3>
               <p>We build fast, reliable developer tools and enterprise solutions.</p>
-              <a href="https://bobadilla.tech/" target="_blank" rel="noopener noreferrer" class="button button-secondary">
+              <a href={site.brand.url} target="_blank" rel="noopener noreferrer" class="button button-secondary">
                 Visit Website →
               </a>
             </div>
@@ -29,7 +30,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <div class="contact-icon">💻</div>
               <h3>GitHub</h3>
               <p>Check out our open source projects and contribute to Lorelai.</p>
-              <a href="https://github.com/bobadilla-tech" target="_blank" rel="noopener noreferrer" class="button button-secondary">
+              <a href={site.brand.github} target="_blank" rel="noopener noreferrer" class="button button-secondary">
                 View GitHub →
               </a>
             </div>
@@ -38,7 +39,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <div class="contact-icon">🔗</div>
               <h3>LinkedIn</h3>
               <p>Connect with us on LinkedIn for updates and company news.</p>
-              <a href="https://www.linkedin.com/company/bobadillatech/" target="_blank" rel="noopener noreferrer" class="button button-secondary">
+              <a href={site.brand.linkedin} target="_blank" rel="noopener noreferrer" class="button button-secondary">
                 Connect →
               </a>
             </div>
@@ -53,13 +54,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <ul class="developer-links">
             <li>
               <strong>Lorelai Go Library:</strong>
-              <a href="https://github.com/bobadilla-tech/lorelai" target="_blank" rel="noopener noreferrer">
+              <a href={site.related.lorelaiRepo} target="_blank" rel="noopener noreferrer">
                 Open source, MIT licensed, zero dependencies
               </a>
             </li>
             <li>
               <strong>Enterprise API:</strong>
-              <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer">
+              <a href={site.related.requiemsApi} target="_blank" rel="noopener noreferrer">
                 Production-ready REST API for high-volume generation
               </a>
             </li>
@@ -82,7 +83,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <h3>Business Inquiries</h3>
           <p>
             For business partnerships, custom development, or enterprise solutions, visit
-            <a href="https://bobadilla.tech/" target="_blank" rel="noopener noreferrer">Bobadilla Tech</a>.
+            <a href={site.brand.url} target="_blank" rel="noopener noreferrer">{site.brand.name}</a>.
           </p>
         </section>
       </div>

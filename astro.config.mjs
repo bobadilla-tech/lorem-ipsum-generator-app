@@ -1,8 +1,9 @@
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
+import { site } from "./src/config/site.ts";
 
 export default defineConfig({
-  site: "https://lorem-ipsum.bobadilla.tech",
+  site: site.url,
   output: "static",
   integrations: [
     sitemap({
@@ -11,7 +12,7 @@ export default defineConfig({
       lastmod: new Date(),
       serialize(item) {
         // Homepage gets highest priority
-        if (item.url === "https://lorem-ipsum.bobadilla.tech/") {
+        if (item.url === `${site.url}/`) {
           item.changefreq = "daily";
           item.priority = 1.0;
         } // Content pages

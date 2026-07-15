@@ -1,13 +1,14 @@
 ---
+import { isAdSenseConfigured, site } from "../../config/site";
+
 interface Props {
   adSlot: string;
 }
 
 const { adSlot } = Astro.props;
 
-// Replace with your actual AdSense client ID
-const adClient = "ca-pub-XXXXXXXXXXXXXXXXX";
-const hasAdClient = adClient !== "ca-pub-XXXXXXXXXXXXXXXXX";
+const adClient = site.adsenseClientId;
+const hasAdClient = isAdSenseConfigured;
 ---
 
 {

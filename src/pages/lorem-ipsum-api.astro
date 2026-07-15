@@ -2,6 +2,7 @@
 import CodeBlock from "../components/CodeBlock.astro";
 import AdContainer from "../components/layout/AdContainer.astro";
 import TerminalCommand from "../components/TerminalCommand.astro";
+import { site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const faqSchema = {
@@ -71,8 +72,8 @@ const faqSchema = {
                 Import it directly into a Go codebase. No network calls, no rate limits, MIT licensed. Best when
                 you're already writing Go and want zero external dependencies.
               </p>
-              <TerminalCommand command="go get github.com/bobadilla-tech/lorelai" />
-              <a href="https://github.com/bobadilla-tech/lorelai" target="_blank" rel="noopener noreferrer" class="link-button">
+              <TerminalCommand command={`go get ${site.related.lorelaiImportPath}`} />
+              <a href={site.related.lorelaiRepo} target="_blank" rel="noopener noreferrer" class="link-button">
                 View on GitHub →
               </a>
             </div>
@@ -86,10 +87,10 @@ const faqSchema = {
               </p>
               <TerminalCommand command={`curl "https://api.requiems.xyz/v1/text/lorem?paragraphs=3" -H "requiems-api-key: YOUR_API_KEY"`} />
               <div class="button-row">
-                <a href="https://requiems.xyz/users/sign_up" target="_blank" rel="noopener noreferrer" class="link-button">
+                <a href={site.related.requiemsApiSignup} target="_blank" rel="noopener noreferrer" class="link-button">
                   Get Your Free API Key →
                 </a>
-                <a href="https://requiems.xyz/" target="_blank" rel="noopener noreferrer" class="link-button link-button-secondary">
+                <a href={site.related.requiemsApi} target="_blank" rel="noopener noreferrer" class="link-button link-button-secondary">
                   View API Docs →
                 </a>
               </div>
@@ -101,7 +102,7 @@ const faqSchema = {
           <h2>Calling It From Your Language</h2>
           <p class="section-note">
             Every Requiems API request needs a <code>requiems-api-key</code> header —
-            <a href="https://requiems.xyz/users/sign_up" target="_blank" rel="noopener noreferrer">get a free one here</a>,
+            <a href={site.related.requiemsApiSignup} target="_blank" rel="noopener noreferrer">get a free one here</a>,
             no credit card required.
           </p>
 
@@ -128,7 +129,7 @@ text = res.json()["data"]["text"]`} />
 
           <div class="use-case">
             <h3>Go (via Lorelai, no network call)</h3>
-            <CodeBlock lang="go" code={`import "github.com/bobadilla-tech/lorelai"
+            <CodeBlock lang="go" code={`import "${site.related.lorelaiImportPath}"
 
 text := lorelai.Generate(lorelai.Options{Paragraphs: 3})`} />
           </div>

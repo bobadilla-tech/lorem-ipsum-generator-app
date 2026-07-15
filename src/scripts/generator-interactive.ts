@@ -61,9 +61,8 @@ function initializeGenerator() {
   const copyText = document.getElementById("copy-text") as HTMLSpanElement;
   const charCountEl = document.getElementById("char-count") as HTMLSpanElement;
   const wordCountEl = document.getElementById("word-count") as HTMLSpanElement;
-  const exportButtons = document.querySelectorAll<HTMLButtonElement>(
-    ".export-button",
-  );
+  const exportButtons =
+    document.querySelectorAll<HTMLButtonElement>(".export-button");
 
   // Get form inputs
   const countInput = document.getElementById("count") as HTMLInputElement;
@@ -230,9 +229,15 @@ function initializeGenerator() {
   /**
    * Triggers a browser download for the given content
    */
-  function downloadBlob(content: string | Blob, mimeType: string, filename: string) {
+  function downloadBlob(
+    content: string | Blob,
+    mimeType: string,
+    filename: string,
+  ) {
     const blob =
-      content instanceof Blob ? content : new Blob([content], { type: mimeType });
+      content instanceof Blob
+        ? content
+        : new Blob([content], { type: mimeType });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;

@@ -102,7 +102,6 @@ lorem-ipsum/
   2. Sticky Sidebar (300x250) - Desktop only
   3. In-Content Rectangle (300x250) - Between sections
   4. Mobile Anchor - Bottom banner (mobile only, dismissible)
-- **Revenue Projection**: ~$437/month at 10K visitors (conservative estimate)
 - **Configuration**: `src/components/layout/AdContainer.astro`
   - Update `adClient` with your Publisher ID
   - Update `adSlot` IDs in page files
@@ -155,15 +154,6 @@ pnpm dev
 pnpm build
 ```
 
-### Git Best Practices
-
-- `.astro/` is gitignored (auto-generated files)
-- `dist/` is gitignored (build output)
-- Commit messages include co-authorship:
-  ```
-  Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
-  ```
-
 ### Image Requirements
 
 - **OG Image**: Must be PNG (1200x630), not SVG
@@ -194,8 +184,8 @@ pnpm build
 
 - **Footer**: Company branding with links
 - **"For Developers" Section**:
-  - [Lorelai](https://github.com/bobadilla-tech/lorelai) - Go library
-  - [Requiems API](https://requiems.xyz) - Enterprise API
+  - [Lorelai](https://github.com/bobadilla-tech/lorelai): Go library
+  - [Requiems API](https://requiems.xyz): Enterprise API
   - Social links: GitHub, LinkedIn, Website
 - **Contact Page**: Full company info
 
@@ -206,62 +196,10 @@ pnpm build
 ```css
 /* Light Mode */
 --accent: #3b82f6 (blue) --bg-primary: #ffffff --bg-secondary: #f1f5f9
-  --text-primary: #0f172a --text-secondary: #475569 /* Dark Mode */ --accent:
-  #60a5fa --bg-primary: #0f172a --bg-secondary: #1e293b --text-primary: #f8fafc
-  --text-secondary: #cbd5e1;
+  --text-primary: #0f172a --text-secondary: #475569 /* Dark Mode */
+  --accent: #60a5fa --bg-primary: #0f172a --bg-secondary: #1e293b
+  --text-primary: #f8fafc --text-secondary: #cbd5e1;
 ```
-
-## Known Issues & Gotchas
-
-### 1. Astro Script Warnings
-
-Two harmless warnings appear during build:
-
-- AdContainer.astro:23 - `async` attribute on script
-- BaseHead.astro:51 - `type` attribute on JSON-LD script **Solution**: Ignore
-  these - they're just hints, not errors
-
-### 2. Social Media Image
-
-- Must use PNG, not SVG
-- WhatsApp/Facebook/Twitter won't show SVG previews
-- Always test sharing after deployment
-
-### 3. GitHub Pages Custom Domain
-
-- `public/CNAME` must stay committed (containing just the domain, no
-  protocol) - deleting it drops the custom domain back to the
-  `*.github.io` default on the next deploy
-- DNS for `lorem-ipsum.bobadilla.tech` must point at GitHub Pages
-  (CNAME/ALIAS record) for the custom domain to resolve
-
-## Performance Targets
-
-- **Lighthouse Score**: > 95/100
-- **Page Load**: < 2 seconds
-- **Core Web Vitals**: All "Good"
-  - LCP < 2.5s
-  - FID < 100ms
-  - CLS < 0.1
-
-## Future Enhancements (CHANGELOG.md)
-
-### Phase 2 (Optional)
-
-- [ ] Google Analytics 4 integration
-- [ ] Additional generator features (names, addresses)
-- [ ] API endpoint for programmatic access
-- [ ] Chrome extension
-- [ ] More content pages
-- [ ] Blog section
-
-### Future Ideas
-
-- [ ] User accounts and preferences
-- [ ] Custom word lists
-- [ ] Export to PDF
-- [ ] Figma plugin integration
-- [ ] Multi-language support
 
 ## Common Commands
 

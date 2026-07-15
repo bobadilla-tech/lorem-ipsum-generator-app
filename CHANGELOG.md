@@ -1,5 +1,22 @@
 # Changelog
 
+## [Unreleased] - 2026-07-15
+
+### Changed
+
+- ✅ Rebranded visual theme to match bobadilla.tech: gold accent
+  (`#e6be1a`) on near-black background (`#0b0505`) in dark mode, warm
+  gold-tinted palette in light mode
+- ✅ Adopted Sora (headings) and Space Grotesk (body) fonts, loaded via
+  Google Fonts in `BaseHead.astro`
+- ✅ Replaced all blue/purple accent gradients with the brand gold
+  gradient (`--accent` → `--accent-hover`)
+- ✅ Button/badge/CTA text on gold backgrounds switched from white to
+  `#0b0505` for contrast, matching bobadilla.tech's `Button.tsx` gold
+  variant
+- ✅ Light/dark mode toggle retained; both themes retheme to the gold
+  brand palette instead of the old blue palette
+
 ## [1.0.0] - 2026-01-30
 
 ### Added

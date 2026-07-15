@@ -9,15 +9,15 @@
 
 /* CSS Variables - Light Mode */
 :root {
-  /* Colors - Light Mode */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f1f5f9;
-  --bg-glass: rgba(255, 255, 255, 0.9);
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
-  --border: rgba(0, 0, 0, 0.08);
+  /* Colors - Light Mode (Bobadilla Tech gold-tinted) */
+  --bg-primary: #fffdf7;
+  --bg-secondary: #f7f2e4;
+  --bg-glass: rgba(255, 253, 247, 0.9);
+  --text-primary: #1a1512;
+  --text-secondary: #5c5650;
+  --accent: #c9a916;
+  --accent-hover: #e6be1a;
+  --border: rgba(20, 15, 10, 0.1);
   --shadow: rgba(0, 0, 0, 0.08);
 
   /* Spacing */
@@ -36,8 +36,11 @@
 
   /* Typography */
   --font-sans:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
+  --font-heading:
+    "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
   --font-mono:
     "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Roboto Mono", monospace;
 
@@ -47,15 +50,15 @@
   --transition-slow: 0.5s ease;
 }
 
-/* Dark Mode Variables */
+/* Dark Mode Variables (Bobadilla Tech brand) */
 [data-theme="dark"] {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-glass: rgba(30, 41, 59, 0.8);
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --accent: #60a5fa;
-  --accent-hover: #3b82f6;
+  --bg-primary: #0b0505;
+  --bg-secondary: #1a1210;
+  --bg-glass: rgba(11, 5, 5, 0.9);
+  --text-primary: #dbdbd7;
+  --text-secondary: #9c9c98;
+  --accent: #e6be1a;
+  --accent-hover: #ffeea8;
   --border: rgba(255, 255, 255, 0.1);
   --shadow: rgba(0, 0, 0, 0.5);
 }
@@ -85,6 +88,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
@@ -157,10 +161,10 @@ button,
 .button {
   font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all var(--transition-fast);
   display: inline-flex;
@@ -177,7 +181,7 @@ button:disabled,
 
 .button-primary {
   background: var(--accent);
-  color: white;
+  color: #0b0505;
 }
 
 .button-primary:hover:not(:disabled) {
@@ -217,7 +221,7 @@ select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 /* Utility Classes */
@@ -232,7 +236,7 @@ textarea:focus {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -20,6 +20,23 @@ function trackEvent(name: string, params?: Record<string, unknown>) {
   }
 }
 
+/**
+ * Swaps "Ctrl" shortcut hints for the Mac "⌘" symbol on Apple platforms
+ */
+function updateShortcutHintsForMac() {
+  const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
+  if (!isMac) return;
+
+  document.querySelectorAll(".key-mod").forEach((el) => {
+    el.textContent = "⌘";
+  });
+
+  ["shortcut-generate", "shortcut-copy"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = el.textContent?.replace("Ctrl", "⌘") ?? el.textContent;
+  });
+}
+
 // Wait for DOM to be ready
 if (typeof window !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
@@ -57,6 +74,8 @@ function initializeGenerator() {
     console.error("Required elements not found");
     return;
   }
+
+  updateShortcutHintsForMac();
 
   /**
    * Generate Lorem Ipsum text

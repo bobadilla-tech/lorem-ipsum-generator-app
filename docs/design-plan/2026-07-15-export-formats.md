@@ -18,12 +18,12 @@ generation happens in the browser via `Blob` downloads (txt/csv/js) and
 
 ## Format details
 
-| Format | Content | Notes |
-|---|---|---|
-| TXT | Raw generated text (current `outputEl.textContent`) | Same as copy-to-clipboard content |
-| CSV | One row per line/paragraph of output, single `text` column, RFC4180-quoted | Splits on `\n`, filters empty lines |
-| JS | `export const loremIpsum = \`...\`;` template literal with generated text | Backticks/backslashes in content escaped |
-| PDF | Generated text laid out with `jspdf`, auto word-wrapped, multi-page if needed | Uses `doc.splitTextToSize` + `doc.text` |
+| Format | Content                                                                       | Notes                                    |
+| ------ | ----------------------------------------------------------------------------- | ---------------------------------------- |
+| TXT    | Raw generated text (current `outputEl.textContent`)                           | Same as copy-to-clipboard content        |
+| CSV    | One row per line/paragraph of output, single `text` column, RFC4180-quoted    | Splits on `\n`, filters empty lines      |
+| JS     | `export const loremIpsum = \`...\`;` template literal with generated text     | Backticks/backslashes in content escaped |
+| PDF    | Generated text laid out with `jspdf`, auto word-wrapped, multi-page if needed | Uses `doc.splitTextToSize` + `doc.text`  |
 
 All four disabled (or no-op) when output is empty/placeholder — same guard
 already used by `copyToClipboard`.
